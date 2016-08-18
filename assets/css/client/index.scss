@@ -78,3 +78,20 @@
     white-space: nowrap;
   }
 }
+
+
+.stats-2016{
+  @include useLeague();
+  font-size: 15px;
+
+  ul{
+    padding: 0px;
+    margin: 0px;
+  }
+
+}
+
+
+.image-shareImages{
+  min-height: 1000px;
+}

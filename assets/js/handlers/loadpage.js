@@ -9,19 +9,53 @@ var catchphrases = [
   "SELECT * FROM hacks"
 ]
 
+function chooseCatchPhrase(){
+  $(".loader-o-text").text(catchphrases.chooseOne());
+}
+
+function preLoad(){
+  if(!$("preload").data("loaded")){
+    $("preload").data("loaded", true);
+    chooseCatchPhrase();
+  }
+}
+
 //
 window.onpopstate = function(){
+  preLoad();
   onLoad();
 };
 
 $(document).ready(function(){
+  preLoad();
   onLoad();
 });
 
 $(document).on("click", ".load", function(){
-  var page = $(this).data("goto");
-  setPage(page, page)
-  loadPage(page);
+  var page = $(this).data("goto") || "";
+  var timeDelay  = 0;
+
+  $("container section").each(function(){
+    var delay = (timeDelay*150 + 0);
+    var that = this;
+
+    setTimeout(function(){
+
+      $(that).animate({
+        opacity:0,
+        "margin-top":50
+      }, 500, function(){
+        setPage(page, page)
+        preLoad();
+        loadPage(page);
+      });
+    }, delay)
+
+
+    timeDelay++;
+  });
+
+
 });
 
 function setPage(page, title, part){
@@ -32,7 +66,7 @@ function setPage(page, title, part){
 function onLoad(){
   if (typeof history.pushState === "function") {
     var page = window.location.pathname.split('/')[1];
-        page = (page) ? page : "index";
+
 
     loadPage(page);
 
@@ -56,6 +90,7 @@ function getService(){
 }
 
 function loadPage(page){
+  page = (page) ? page : "index";
 
 
   // load header
@@ -68,6 +103,7 @@ function loadPage(page){
         loadingAnimations(function(){
           if(page && runPage[page]){
               runPage[page]();
+              $("preload").data("loaded", false);
           }
         });
 
@@ -82,16 +118,25 @@ function loadPage(page){
 var runPage = {
   index:function(){
     launchIndex();
+  },
+  2016:function(){
+    launch2016();
   }
 }
 
 
 function loadingAnimations(resolve){
+
   $("container section").css("opacity", "0");
 
-  $(".loader-o-text").text(catchphrases.chooseOne());
+
   var overlay = $(".loader-overlay");
   overlay.css("display", "block");
+  overlay.animate({
+    opacity:1
+  }, 500);
+
+  overlay.find(".loader-o-content").css("opacity", "1");
 
   setTimeout(function(){
 
@@ -131,5 +176,5 @@ function loadingAnimations(resolve){
       resolve();
 
     });
-  }, 500)
+  }, 800)
 }

@@ -46,6 +46,7 @@ h1, h2, h3, h4, h5, h6{
   font-family: $header-font;
   color: $header-color-default;
   font-weight: bold;
+  line-height: 1.4;
 }
 
 h1{
@@ -122,6 +123,7 @@ button{
 
 // paragraphs and subtext
 p {
+  max-width: 600px;
   margin: 20px 0px;
 
   &.withTitle{
@@ -153,12 +155,13 @@ p {
 
   &.withText::after{
     @extend h4;
-
+    
     content: "HackMerced";
     margin-left: 10px;
     left: 36px;
     position: absolute;
     height: 36px;
+    line-height: 53px;
   }
 }
 
