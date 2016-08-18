@@ -1,0 +1,80 @@
+.index-HackForTheFuture{
+  line-height: 96px;
+  margin-top: 91px;
+}
+
+.index-centerTwoLinesIntheMiddle{
+  width: 300px;
+  margin: 118px auto 0px;
+}
+
+.index-showUpPicture{
+  margin-top: 111px;
+  line-height: 60px;
+}
+
+
+.index-hidden-overlay{
+  text-align: center;
+}
+
+
+
+.index-imageloader-overlay{
+  display: flex;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+
+  *::after{
+    position: absolute;
+    z-index: 1;
+    content: "";
+    background: rgba(0,0,0,.4);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.index-imageloader{
+  cursor: pointer;
+}
+
+.index-il-image1, .index-il-image2{
+  width: 50%;
+  height: 100%;
+  background-size: auto 120%;
+  position: relative;
+  background-position: center center;
+
+}
+
+
+
+
+
+.index-il-image1{
+  background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/IMG_0035.jpg");
+}
+
+.index-il-image2{
+  background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/IMG_0084.jpg");
+}
+
+
+.index-HF2{
+  display: block;
+  position: absolute;
+  margin-top: -96px;
+  background: #364B91;
+  width: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  *{
+    white-space: nowrap;
+  }
+}

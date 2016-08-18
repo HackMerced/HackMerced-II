@@ -1,16 +1,109 @@
+// default variables
 $background-color: #fff;
+$desktop-width: 1200px;
 
-$header-font: "League Spartan", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// define fonts
+$additional-fonts: Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$league-font: "League Spartan";
+$roboto-font: "Roboto";
+
+// header settings
+$header-font: $league-font, $additional-fonts;
 $header-color-default: #333333;
 
-$body-font: "Roboto", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// body settings
+$body-font: $roboto-font, $additional-fonts;
 $body-font-size: 16px;
 $body-color-default: #333333;
-$body-line-height: 1.8
+$body-line-height: 1.8;
 
 // colors
-$blue: #232648;
+$darkblue: #232648;
+$blue: #364B91;
+$lightblue: #73C5FF;
 $yellow: #E5DE7A;
+
+$black: #090909; // True black sucks
+$white: #fff; // don't change
 
 // typing colors
 $font-grey: #8C8C8C;
+
+@mixin useLeague(){
+  font-family: $league-font;
+}
+
+@mixin makeObjectYellow(){
+  color:$black;
+  background-color: $yellow;
+}
+
+@mixin makeObjectBlack(){
+  color:$white;
+  background-color: $black;
+}
+
+@mixin makeObjectDarkBlue(){
+  color:$white;
+  background-color: $darkblue;
+}
+
+@mixin makeObjectBlue(){
+  color:$white;
+  background-color: $blue;
+}
+
+@mixin makeObjectLightBlue(){
+  color:$white;
+  background-color: $lightblue;
+}
+
+
+@mixin colorObjects(){
+  &.darkblue{
+    @include makeObjectDarkBlue();
+  }
+
+  &.blue{
+    @include makeObjectBlue();
+  }
+
+  &.lightblue{
+    @include makeObjectLightBlue();
+  }
+
+  &.yellow{
+    @include makeObjectYellow();
+  }
+
+  &.black{
+    @include makeObjectBlack();
+  }
+}
+
+@mixin objectSizing(){
+  &.isHalf{
+    width: 50%;
+  }
+
+  &.isFull{
+    width: 100%;
+  }
+
+  &.isThird{
+    width: 375px;
+  }
+}
+
+// if anything has this, do this
+.isLeft{
+  float: left;
+}
+
+.isRight{
+  float: right;
+}
+
+.allCaps{
+  text-transform: uppercase;
+}

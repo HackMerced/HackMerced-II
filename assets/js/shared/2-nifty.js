@@ -33,6 +33,11 @@ var copy = function(data){
 
 
 
+Array.prototype.chooseOne = function(){
+  return this[Math.floor(Math.random() * this.length)];
+}
+
+
 /* capitalizes */
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);

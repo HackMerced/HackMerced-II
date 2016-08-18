@@ -1,6 +1,14 @@
 include assets/head
 
 block content
+  include assets/header
+
   preload(data-service='client')
   overlays
+    .loader-overlay
+      .loader-o-content
+        .loader-o-loader.loader
+        .loader-o-text Hack On.
   content
+
+  include assets/footer

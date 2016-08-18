@@ -2,7 +2,7 @@
   We don't use bootstrap. Stop asking.
 */
 
-
+// define body
 body, html{
     margin: 0px;
     padding: 0px;
@@ -13,16 +13,43 @@ body, html{
     background-color: $background-color;
 }
 
+// set colors
+h1, h2, h3, h4, h5, h6, p, text{
+  &.white{
+    color: $white;
+  }
+
+  &.darkblue{
+    color: $darkblue;
+  }
+
+  &.blue{
+    color: $blue;
+  }
+
+  &.lightblue{
+    color: $lightblue;
+  }
+
+  &.yellow{
+    color: $yellow;
+  }
+
+  &.black{
+    color: $black;
+  }
+}
 
 // heading styles
 h1, h2, h3, h4, h5, h6{
+  margin: 0px;
   font-family: $header-font;
   color: $header-color-default;
+  font-weight: bold;
 }
 
 h1{
   font-size: 64px;
-  color: $blue;
 }
 
 h2{
@@ -57,5 +84,131 @@ a{
 
 // clear is great
 .clear{
-    clear: both;
+  clear: both;
+}
+
+// center content
+.center{
+  width: $desktop-width + 20;
+  margin: 0 auto;
+  position:relative;
+  padding: 0px 20px;
+  box-sizing:border-box;
+}
+
+.isCentered{
+  text-align:center;
+}
+
+// button styling/destyling
+
+button{
+  border: 0px;
+  padding: 0px;
+  display: block;
+
+  // extends the font
+  @extend h5;
+
+  color: $black;
+  background-color: $white;
+
+  @include colorObjects();
+
+  &.text-center{
+    text-align: center;
+  }
+}
+
+// paragraphs and subtext
+p {
+  margin: 20px 0px;
+
+  &.withTitle{
+    margin-top: 0px;
+  }
+}
+
+.text-block{
+  margin: 20px 0px;
+
+ p {
+   margin: 0px;
+ }
+}
+
+// logo
+.logo{
+  width: 36px;
+  height: 36px;
+
+  background-image: url("/img/hackathon_brand/transparent_logo_by_normal.png");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+
+  &.withText{
+    width: 300px;
+    position: relative;
+  }
+
+  &.withText::after{
+    @extend h4;
+
+    content: "HackMerced";
+    margin-left: 10px;
+    left: 36px;
+    position: absolute;
+    height: 36px;
+  }
+}
+
+
+// loaders
+
+@mixin loader($color, $size, $thickness){
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  border: $thickness solid rgba($color, 0.2);
+  border-top-color: $color;
+  animation: spin 1s infinite linear;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+// loader actuals
+
+.loader-overlay{
+  z-index: 99;
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+  height: 100%;
+
+}
+
+.loader-o-content{
+    margin: 300px 0px 0px;
+    text-align: center;
+}
+
+.loader-o-loader{
+  margin: 0 auto;
+  @include loader($blue, 60px, 5px);
+}
+.loader-o-text{
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: 1px;
+  color: $blue;
 }
