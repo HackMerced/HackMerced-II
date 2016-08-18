@@ -1,0 +1,8 @@
+footer{
+  text-align: center;
+  .content{
+    padding: 60px 0px;
+  }
+  @include useLeague();
+  width: 100%;
+}
