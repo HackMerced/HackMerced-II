@@ -8,6 +8,10 @@ window.onload = function () {
     onLoad();
 };
 
+$(document).ready(function(){
+  onLoad();
+});
+
 
 
 function onLoad(){
@@ -39,7 +43,7 @@ function getService(){
 function loadPage(page){
   // load header
   $.ajax({
-      url: "/html/" getService() + "/" + page + ".html",
+      url: "/html/" + getService() + "/" + page + ".html",
       type: "GET",
       success: function(results){
 

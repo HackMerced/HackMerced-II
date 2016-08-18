@@ -1,0 +1,61 @@
+/*
+  We don't use bootstrap. Stop asking.
+*/
+
+
+body, html{
+    margin: 0px;
+    padding: 0px;
+    font-family: $body-font;
+    font-size: $body-font-size;
+    line-height: $body-line-height;
+    color: $body-color-default;
+    background-color: $background-color;
+}
+
+
+// heading styles
+h1, h2, h3, h4, h5, h6{
+  font-family: $header-font;
+  color: $header-color-default;
+}
+
+h1{
+  font-size: 64px;
+  color: $blue;
+}
+
+h2{
+  font-size: 48px;
+}
+
+h3{
+  font-size: 36px;
+}
+
+h4{
+  font-size: 30px;
+}
+
+h5{
+  font-size: 21px;
+}
+
+h6{
+  color: $font-grey;
+  font-size: 18px;
+}
+
+
+// anchor tag destyling
+a{
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+
+}
+
+// clear is great
+.clear{
+    clear: both;
+}

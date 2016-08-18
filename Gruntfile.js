@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                 dest: './public/js/client.js',
             },
             scss_client: {
-              src: ['./assets/css/shared/*.scss', './assets/css/client/*.scss'],
+              src: ['./assets/css/import/*.scss', './assets/css/shared/*.scss', './assets/css/client/*.scss'],
               dest: './assets/parse/client-parse.scss'
             },
         },
