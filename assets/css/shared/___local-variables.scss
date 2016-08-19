@@ -101,6 +101,10 @@ $font-grey: #8C8C8C;
   &.isThird{
     width: 375px;
   }
+
+  &.isTotal{
+      height: auto;
+  }
 }
 
 // if anything has this, do this

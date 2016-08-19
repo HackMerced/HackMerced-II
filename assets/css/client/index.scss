@@ -9,7 +9,7 @@
 }
 
 .index-showUpPicture{
-  margin-top: 111px;
+  margin-top: 94px;
   line-height: 60px;
 }
 
@@ -25,25 +25,30 @@
   height: 100%;
   position: absolute;
   z-index: 0;
+  overflow: hidden;
   width: 100%;
 
-  *::after{
-    position: absolute;
-    z-index: 1;
-    content: "";
-    background: rgba(0,0,0,.4);
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
+
 }
+
+
+.index-imageloader-overlay::after{
+  position: absolute;
+  z-index: 1;
+  content: "";
+  background: rgba(0,0,0,.4);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
 
 .index-imageloader{
   cursor: pointer;
 }
 
-.index-il-image1, .index-il-image2{
+.index-il-image1, .index-il-image2, .index-il-image1::after, .index-il-image2::after{
   width: 50%;
   height: 100%;
   background-size: auto 120%;
@@ -52,23 +57,54 @@
 
 }
 
+.index-il-image1::after, .index-il-image2::after{
+
+  position: absolute;
+  z-index: 1;
+  width:100%;
+  transition: top 500ms, bottom 500ms;
+  content: "";
+
+}
 
 
+.index-imageloader:hover{
+  .index-il-image1::after{
+    top:0;
+  }
+
+  .index-il-image2::after{
+    bottom: 0;
+  }
+}
 
 
 .index-il-image1{
-  background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/IMG_0035.jpg");
+  background-size: 100%;
+  background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/9.jpg");
+}
+
+.index-il-image1::after{
+  background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/16.jpg");
+  background-size: auto 100%;
+  top: -100%;
 }
 
 .index-il-image2{
-  background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/IMG_0084.jpg");
+  background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/2.jpg");
+}
+
+.index-il-image2::after{
+  background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/13.jpg");
+  background-size: auto 100%;
+  bottom: -100%;
 }
 
 
 .index-HF2{
   display: block;
   position: absolute;
-  margin-top: -96px;
+  margin-top: -89px;
   background: #364B91;
   width: 0px;
   box-sizing: border-box;
@@ -79,8 +115,48 @@
   }
 }
 
+.APimage{
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-size: auto;
+  margin: 10px;
+  position: relative;
+  background-position: top center;
+}
 
-.stats-2016{
+.APstats{
+  position: absolute;
+  top: 0px;
+  z-index: 9;
+  background-color: rgba(0,0,0,0);
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #fff;
+}
+
+
+.withAP{
+  overflow: hidden;
+}
+
+
+
+.image-shareImages{
+  min-height: 1000px;
+}
+
+.withAP .content{
+  width: 100%;
+  height: 100%;
+  background-color: $black;
+  background-size: auto;
+  margin: 10px;
+  color: #fff;
+  position: relative;
+  background-position: center center;
+
   @include useLeague();
   font-size: 15px;
 
@@ -88,10 +164,13 @@
     padding: 0px;
     margin: 0px;
   }
-
 }
 
 
-.image-shareImages{
-  min-height: 1000px;
+.HackMercedInPics{
+  padding-top: 100px;
+}
+
+.image-shareImages .transparent-content{
+  margin-top: 50px;
 }

@@ -6,13 +6,25 @@ header{
   width: 100%;
 
   nav{
-    margin-left: 50px;
+
+
     position: absolute;
     bottom: 0px;
 
-    left: 300px;
+    &.isLeft{
+      left: 350px;
+    }
+
+    &.isRight{
+      right:60px;
+
+      a{
+        margin: 0px;
+      }
+    }
+
     height: 21px;
-    
+
     a{
       @include useLeague();
 

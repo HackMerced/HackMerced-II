@@ -2,7 +2,9 @@ header
   .center
     .logo.withText.isLeft.load(goto='')
     nav.isLeft
-      a(href='#compete') Join Our Team
-      a(href='#compete') Volunteer
-      a(href='#compete') Contact
+      a.load(data-goto='join-our-team') Join Our Team
+      a.load(data-goto='volunteer') Volunteer
+      a(target="_blank" href='https://www.facebook.com/hackmerced') Contact
+    nav.isRight
+      a Get Updates
     .clear

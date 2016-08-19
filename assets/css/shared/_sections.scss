@@ -24,7 +24,7 @@ section{
   }
 
   &.tall{
-    height: 500px;
+    height: 600px;
   }
 
   .identifier{
@@ -60,9 +60,15 @@ section{
   &.withAPicture{
     color: $yellow;
     background-color: transparent;
-    background-size: 120% auto;
+    background-size: auto;
     background-position: center center;
+
+    img{
+      width: 100%;
+    }
   }
+
+
 
   &.withAPicture::after{
     content: "";

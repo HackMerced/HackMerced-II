@@ -9,6 +9,7 @@ var catchphrases = [
   "SELECT * FROM hacks"
 ]
 
+
 function chooseCatchPhrase(){
   $(".loader-o-text").text(catchphrases.chooseOne());
 }
@@ -19,6 +20,8 @@ function preLoad(){
     chooseCatchPhrase();
   }
 }
+
+var load = false;
 
 //
 window.onpopstate = function(){
@@ -90,29 +93,34 @@ function getService(){
 }
 
 function loadPage(page){
-  page = (page) ? page : "index";
+  if(!load){
+    page = (page) ? page : "index";
+    load = true;
 
+    // load header
+    $.ajax({
+        url: "/html/" + getService() + "/" + page + ".html",
+        type: "GET",
+        success: function(results){
 
-  // load header
-  $.ajax({
-      url: "/html/" + getService() + "/" + page + ".html",
-      type: "GET",
-      success: function(results){
+          $("content").html(results);
+          loadingAnimations(function(){
+            load = false;
 
-        $("content").html(results);
-        loadingAnimations(function(){
-          if(page && runPage[page]){
-              runPage[page]();
-              $("preload").data("loaded", false);
-          }
-        });
+            if(page && runPage[page]){
+                runPage[page]();
+                $("preload").data("loaded", false);
+            }
+          });
 
-      },
-      error: function(results){
-        // page fails
+        },
+        error: function(results){
+          // page fails
 
-      }
-  });
+        }
+    });
+  }
+
 }
 
 var runPage = {

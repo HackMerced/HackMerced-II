@@ -90,11 +90,12 @@ a{
 
 // center content
 .center{
-  width: $desktop-width + 20;
   margin: 0 auto;
-  position:relative;
-  padding: 0px 20px;
-  box-sizing:border-box;
+  position: relative;
+  padding: 0px 60px;
+  max-width: 1440px;
+  min-width: calc(1200px + 60px);
+  box-sizing: border-box;
 }
 
 .isCentered{
@@ -107,6 +108,8 @@ button{
   border: 0px;
   padding: 0px;
   display: block;
+  border-radius: 2px;
+  cursor: pointer;
 
   // extends the font
   @extend h5;
@@ -119,6 +122,15 @@ button{
   &.text-center{
     text-align: center;
   }
+
+  &.normal{
+    font-size: 16px;
+    padding: 20px;
+    min-width: 240px;
+    margin: 40px 0px;
+  }
+
+
 }
 
 // paragraphs and subtext
@@ -143,19 +155,20 @@ p {
 .logo{
   width: 36px;
   height: 36px;
+  cursor: pointer;
 
   background-image: url("/img/hackathon_brand/transparent_logo_by_normal.png");
   background-size: auto 100%;
   background-repeat: no-repeat;
 
   &.withText{
-    width: 300px;
+    width: 236px;
     position: relative;
   }
 
   &.withText::after{
     @extend h4;
-    
+
     content: "HackMerced";
     margin-left: 10px;
     left: 36px;
@@ -214,4 +227,26 @@ p {
   font-size: 21px;
   letter-spacing: 1px;
   color: $blue;
+}
+
+
+// others
+
+.hidden-content{
+  display:none;
+}
+
+.transparent-content{
+  opacity: 0;
+}
+
+// page styles
+
+.list-title{
+  font-weight: 600;
+}
+
+li {
+  margin: 0px 45px;
+  line-height: 2;
 }
