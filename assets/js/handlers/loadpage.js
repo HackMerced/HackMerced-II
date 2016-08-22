@@ -32,12 +32,16 @@ window.onpopstate = function(){
   });
 };
 
+
+
 $(document).ready(function(){
   startUpScripts();
 
-
+  $(".nojs").html("");
+  
   preLoad(function(){
-    $(".loader-overlay").css("display", "block");
+
+
     onLoad();
   });
 
