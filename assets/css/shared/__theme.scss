@@ -133,6 +133,33 @@ button{
 
 }
 
+input[type='submit']{
+  @extend button;
+}
+
+
+//label
+
+label{
+  display: block;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+
+// input
+input{
+  width: 600px;
+  padding: 0px 22px;
+  height: auto;
+  border-radius: 2px;
+  font-size: 18px;
+  border: 0px;
+  box-sizing: border-box;
+  box-shadow: none;
+  line-height: 68px;
+}
+
 // paragraphs and subtext
 p {
   max-width: 600px;
@@ -145,7 +172,7 @@ p {
   a:hover{
     text-decoration: underline;
   }
-  
+
   &.withTitle{
     margin-top: 0px;
   }
@@ -258,4 +285,26 @@ p {
 li {
   margin: 0px 45px;
   line-height: 2;
+}
+
+
+// load style
+a.load{
+  position: relative;
+}
+
+a.load::after{
+  height: 2px;
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background: $black;
+  width: 0;
+  border-radius: 4px;
+  transition: width 500ms;
+}
+
+a.load.selected::after, a.load:hover::after{
+  width: 100%;
 }

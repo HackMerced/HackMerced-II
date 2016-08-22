@@ -1,11 +1,8 @@
 // random catch phrases
 var catchphrases = [
-  'Hack On.',
   'sudo ./hackmerced.sh',
   'git commit -am "my hack 2017"',
-  "Your code looks great!",
   "Just add Node.js",
-  "Design+Code",
   "SELECT * FROM hacks"
 ]
 
@@ -47,7 +44,11 @@ $(document).on("click", ".load", function(){
   var that = this;
 
   preLoad(function(){
+
+
     var page = $(that).data("goto") || "";
+
+    makeLoadSelected(page);
     var timeDelay  = 0;
     var last = true;
     $("container section").each(function(){
@@ -106,14 +107,27 @@ function onLoad(){
   }
 }
 
+
+// get type of page (client/app/etc)
 function getService(){
   return $("preload").data("service");
+}
+
+function makeLoadSelected(page){
+  $(".load").removeClass("selected");
+  $(".load[data-goto='" + page + "']").addClass("selected");
+
 }
 
 function loadPage(page){
   if(!load){
     page = (page) ? page : "index";
     load = true;
+
+    if(!$(".load[data-goto='" + page + "']").hasClass("selected")){
+      makeLoadSelected(page);
+    }
+
 
     // load header
     $.ajax({

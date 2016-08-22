@@ -16,6 +16,4 @@ function launchIndex(){
       width:0
     }, 500)
   });
-
-
 }

@@ -1,7 +1,7 @@
 {
-  "name": "datastack",
-  "version": "2.5.0",
-  "description": "Platform for Analytics",
+  "name": "HackMeced",
+  "version": "2.0.1",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
@@ -36,10 +36,8 @@
     "cookie-parser": "^1.3.5",
     "cookie-session": "^1.1.0",
     "crypto": "0.0.3",
-    "d3": "^3.5.8",
     "express": "^4.13.0",
     "express-session": "^1.11.3",
-    "intercom-client": "^2.8.0",
     "jade": "^1.11.0",
     "js-sha256": "^0.3.0",
     "jsdom": "^9.4.1",
@@ -49,11 +47,8 @@
     "mongojs": "^1.4.0",
     "morgan": "^1.6.0",
     "mysql": "^2.11.1",
-    "oauth": "^0.9.13",
-    "python-shell": "^0.4.0",
     "request": "^2.58.0",
     "sendgrid": "^1.8.0",
     "serve-favicon": "^2.3.0",
-    "stripe": "^4.7.0"
   }
 }
