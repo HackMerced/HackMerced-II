@@ -48,6 +48,7 @@
     "mysql": "^2.11.1",
     "request": "^2.58.0",
     "sendgrid": "^1.8.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.3.0",
+    "which": "^1.2.10"
   }
 }
