@@ -34,7 +34,10 @@ window.onpopstate = function(){
 
 $(document).ready(function(){
   startUpScripts();
+
+
   preLoad(function(){
+    $(".loader-overlay").css("display", "block");
     onLoad();
   });
 
