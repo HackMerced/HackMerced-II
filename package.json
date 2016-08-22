@@ -40,7 +40,6 @@
     "express-session": "^1.11.3",
     "jade": "^1.11.0",
     "js-sha256": "^0.3.0",
-    "jsdom": "^9.4.1",
     "method-override": "^2.3.3",
     "moment": "^2.10.3",
     "mongodb": "^2.0.45",
