@@ -14,7 +14,13 @@ function showCurrentRow(){
           $(that).removeClass("transparent-content");
         });
       }, delay*200)
-      delay++;
+
+      if(delay < 3){
+        delay++;
+      } else {
+        delay += .25;
+      }
+
     }
   });
 

@@ -17,6 +17,9 @@ $body-font-size: 16px;
 $body-color-default: #333333;
 $body-line-height: 1.8;
 
+// footer settings
+$footer-font: $header-font;
+
 // colors
 $darkblue: #232648;
 $blue: #364B91;
@@ -30,7 +33,8 @@ $white: #fff; // don't change
 $font-grey: #8C8C8C;
 
 @mixin useLeague(){
-  font-family: $league-font;
+  font-family: $footer-font;
+  font-weight: bold;
 }
 
 @mixin makeObjectYellow(){

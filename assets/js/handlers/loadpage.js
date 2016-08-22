@@ -14,50 +14,68 @@ function chooseCatchPhrase(){
   $(".loader-o-text").text(catchphrases.chooseOne());
 }
 
-function preLoad(){
+function preLoad(resolve){
   if(!$("preload").data("loaded")){
     $("preload").data("loaded", true);
     chooseCatchPhrase();
+    resolve();
   }
 }
 
 var load = false;
 
+function startUpScripts(){
+  $("header nav").css("display", "block");
+}
+
 //
 window.onpopstate = function(){
-  preLoad();
-  onLoad();
+  preLoad(function(){
+    onLoad();
+  });
 };
 
 $(document).ready(function(){
-  preLoad();
-  onLoad();
+  startUpScripts();
+  preLoad(function(){
+    onLoad();
+  });
+
 });
 
 $(document).on("click", ".load", function(){
-  var page = $(this).data("goto") || "";
-  var timeDelay  = 0;
+  var that = this;
 
-  $("container section").each(function(){
-    var delay = (timeDelay*150 + 0);
-    var that = this;
+  preLoad(function(){
+    var page = $(that).data("goto") || "";
+    var timeDelay  = 0;
+    var last = true;
+    $("container section").each(function(){
+      var delay = (timeDelay*150 + 0);
+      var that = this;
 
-    setTimeout(function(){
+      setTimeout(function(){
 
-      $(that).animate({
-        opacity:0,
-        "margin-top":50
-      }, 500, function(){
-        setPage(page, page)
-        preLoad();
-        loadPage(page);
-      });
-    }, delay)
+        $(that).animate({
+          opacity:0,
+          "margin-top":50
+        }, 500, function(){
+          if(last){
+            last = false;
+            setPage(page, page)
+            loadPage(page);
+          }
+        });
+      }, delay)
 
 
-    timeDelay++;
+      timeDelay++;
+    });
+
+
+
+
   });
-
 
 });
 
@@ -109,8 +127,10 @@ function loadPage(page){
 
             if(page && runPage[page]){
                 runPage[page]();
-                $("preload").data("loaded", false);
+
             }
+
+            $("preload").data("loaded", false);
           });
 
         },
@@ -184,5 +204,5 @@ function loadingAnimations(resolve){
       resolve();
 
     });
-  }, 800)
+  }, 500)
 }

@@ -138,6 +138,14 @@ p {
   max-width: 600px;
   margin: 20px 0px;
 
+  a {
+    color: $blue;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+  
   &.withTitle{
     margin-top: 0px;
   }
@@ -208,6 +216,7 @@ p {
   position: fixed;
   bottom:0px;
   width: 100%;
+  display: none;
   height: 100%;
 
 }
