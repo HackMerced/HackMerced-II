@@ -28,7 +28,17 @@ $(document).on("click", "#getUpdates", function(){
   $(".gu-exit").css("display", "flex");
   $("content, body").css("overflow-y", "hidden");
 
-  var size = $(window).width()*2;
+  var size_x = $(window).width()*2;
+  var size_y = $(window).height()*2;
+  var size = size_x;
+
+  if(size_x < size_y){
+    size = size_y;
+  }
+
+  $(".get-updates-underlay").css("margin-top", -(size/4));
+  $(".get-updates-underlay").css("margin-left", -(size/4));
+
   $(".get-updates-underlay").animate({
     width: size,
     height: size
