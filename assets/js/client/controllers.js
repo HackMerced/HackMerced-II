@@ -1,10 +1,13 @@
 $(document).on("click", "#mc-embedded-subscribe", function(){
   $(".get-updates").fadeOut();
+  $("content, body").css("overflow-y", "auto");
 
   $("header nav.isRight a").text("Thanks for Joining!")
 });
 
 $(document).on("click", ".gu-exit", function(){
+  $("content, body").css("overflow-y", "auto");
+
   $(".get-updates-underlay").animate({
     width: "50px",
     height: "50px"
@@ -23,10 +26,12 @@ $(document).on("click", ".gu-exit", function(){
 $(document).on("click", "#getUpdates", function(){
   $(".get-updates").css("display", "block");
   $(".gu-exit").css("display", "flex");
+  $("content, body").css("overflow-y", "hidden");
 
+  var size = $(window).width()*2;
   $(".get-updates-underlay").animate({
-    width: "200%",
-    height: "200%"
+    width: size,
+    height: size
   }, 500, function(){
   });
 

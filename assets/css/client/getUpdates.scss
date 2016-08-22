@@ -3,6 +3,7 @@
   height: 100%;
   position: fixed;
   top: 0;
+  overflow-y: auto;
   z-index: 999;
 
 }
@@ -77,11 +78,10 @@
   }
 }
 
-
 .gu-content{
   margin: 60px 0px;
   z-index: 2;
-  max-width: 700px;
+  width: 100%;
   position: relative;
 
   h1{
@@ -90,6 +90,7 @@
 
   h3{
     color: #C4C4C4;
+    width: 700px;
   }
 
 
