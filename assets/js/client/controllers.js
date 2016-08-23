@@ -1,8 +1,8 @@
 $(document).on("click", "#mc-embedded-subscribe", function(){
-  $(".get-updates").fadeOut();
-  $("content, body").css("overflow-y", "auto");
+//  $(".get-updates").fadeOut();
+//  $("content, body").css("overflow-y", "auto");
 
-  $("header nav.isRight a").text("Thanks for Joining!")
+//  $("header nav.isRight a").text("Thanks for Joining!")
 });
 
 $(document).on("click", ".gu-exit", function(){
