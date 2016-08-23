@@ -15,6 +15,17 @@ module.exports = function(grunt) {
             ],
           },
         },
+        cssmin: {
+          client: {
+            files: [{
+              expand: true,
+              cwd: './public/css',
+              src: ['client.css', 'client.min.css'],
+              dest: './public/css',
+              ext: '.min.css'
+            }]
+          }
+        },
         sass: {
             sass_client: {
                 options: {
@@ -98,10 +109,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['concat', 'copy', 'sass',  'watch']);
-    grunt.registerTask('production', ['clean', 'concat', 'copy', 'uglify', 'imagemin', 'sass']);
+    grunt.registerTask('production', ['clean', 'concat', 'copy', 'uglify', 'imagemin', 'sass', "cssmin"]);
     grunt.registerTask('images', ['clean', 'imagemin']);
 
 };
