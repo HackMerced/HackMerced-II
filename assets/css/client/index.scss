@@ -1,16 +1,20 @@
 .index-HackForTheFuture{
   line-height: 96px;
-  margin-top: 91px;
+
+  > div{
+    padding-top: 91px;
+  }
+
 }
 
 .index-centerTwoLinesIntheMiddle{
 
   h4{
     width: 300px;
-    margin: 0 auto;
+    margin: 118px auto 0px;
   }
 
-  margin: 118px auto 0px;
+  margin: 0px auto 0px;
 }
 
 .index-showUpPicture{

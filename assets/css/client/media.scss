@@ -29,7 +29,10 @@
   }
 
   .index-HackForTheFuture {
-    margin-top: 104px;
+
+    > div{
+      padding-top: 104px;
+    }
   }
 
   .index-HF2{
@@ -144,7 +147,10 @@ header .isLeft .getUpdates{
   }
 
   .index-HackForTheFuture{
-    margin-top: 109px;
+
+    > div{
+      padding-top: 109px;
+    }
   }
 
 
@@ -152,7 +158,10 @@ header .isLeft .getUpdates{
 
 @media screen and (max-width:810px) {
   .index-HackForTheFuture{
-    margin-top: 90px;
+
+    > div{
+      padding-top: 76px;
+    }
   }
 }
 
@@ -164,7 +173,10 @@ header .isLeft .getUpdates{
   }
 
   .index-HackForTheFuture {
-    margin-top: 127px;
+
+    > div{
+      padding-top: 127px;
+    }
   }
 
   header nav.isLeft{
@@ -232,6 +244,10 @@ header .isLeft .getUpdates{
   .index-il-image1{
     width: 100%;
   }
+
+  .index-il-image1::after{
+    display: none;
+  }
   .index-il-image2{
     display: none;
   }
@@ -253,7 +269,10 @@ header .isLeft .getUpdates{
 
 @media screen and (max-width:610px) {
   .index-HackForTheFuture {
-    margin-top: 79px;
+    > div{
+      padding-top: 79px;
+    }
+
   }
 
 }

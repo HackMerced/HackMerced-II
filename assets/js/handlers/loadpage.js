@@ -3,7 +3,8 @@ var catchphrases = [
   'sudo ./hackmerced.sh',
   'git commit -am "my hack 2017"',
   "Just add Node.js",
-  "SELECT * FROM hacks"
+  "SELECT * FROM hacks",
+  "Reticulating Splines"
 ]
 
 
@@ -38,7 +39,7 @@ $(document).ready(function(){
   startUpScripts();
 
   $(".nojs").html("");
-  
+
   preLoad(function(){
 
 
