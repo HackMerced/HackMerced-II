@@ -1,0 +1,274 @@
+@media screen and (max-width:1170px) {
+  h2{
+        font-size: 40px;
+  }
+
+  .index-il-image1 {
+    background-size: auto 100%;
+  }
+
+}
+
+
+@media screen and (max-width:1030px) {
+  .index-il-image1 {
+    background-size: 100%;
+  }
+
+  section {
+    width: 100% !important;
+    float: none !important;
+  }
+
+  h1{
+    font-size: 48px;
+  }
+
+  h4{
+    font-size: 24px;
+  }
+
+  .index-HackForTheFuture {
+    margin-top: 104px;
+  }
+
+  .index-HF2{
+    margin-top: -67px;
+  }
+
+  container{
+    display:flex;
+    flex-direction: column;
+  }
+  .index-imageloader{
+    order:1;
+  }
+
+  .index-startHacking{
+    order: 2;
+  }
+
+  .HackMercedInPics{
+    padding: 0px;
+  }
+
+  .index-HackMercedinPics{
+    margin-top: 0px;
+    height: auto;
+    padding: 100px 0px;
+  }
+};
+
+
+header .isLeft .getUpdates{
+  display: none;
+}
+
+@media screen and (max-width:860px) {
+
+  .logo.withText {
+    width: 149px;
+    float: none;
+  }
+
+
+  header .isRight .getUpdates{
+    display: none;
+  }
+
+  header .isLeft .getUpdates{
+    display: inline-block;
+  }
+
+  header nav a:last-of-type{
+    margin: 0px;
+  }
+
+  header {
+    margin: 20px 0px 80px;
+  }
+
+  .gu-content{
+    padding-top: 70px;
+
+    input{
+      width:100%;
+    }
+  }
+
+  .index-HF2{
+    display:none;
+  }
+
+
+
+  h3 {
+    font-size: 25px;
+  }
+
+  header nav.isLeft {
+    left: 0px;
+    width: 100%;
+    top: 64px;
+    left: 60px;
+  }
+
+
+
+
+
+  .index-HackMercedinPics{
+    text-align: left;
+  }
+
+  body, html{
+    font-size: 14px;
+  }
+
+  button.normal, input.normal[type='submit']{
+    font-size: 14px;
+    padding: 15px;
+    min-width: 160px;
+  }
+
+  li{
+    margin: 0px 10px;
+  }
+
+  .index-HF2{
+    margin-top: -50px;
+  }
+
+  footer .content {
+    padding: 20px 0px;
+  }
+
+  .index-HackForTheFuture{
+    margin-top: 109px;
+  }
+
+
+}
+
+@media screen and (max-width:810px) {
+  .index-HackForTheFuture{
+    margin-top: 90px;
+  }
+}
+
+
+@media screen and (max-width:660px) {
+
+  section.isFull > .content {
+    padding: 20px 20px;
+  }
+
+  .index-HackForTheFuture {
+    margin-top: 127px;
+  }
+
+  header nav.isLeft{
+    left:20px;
+  }
+
+
+  .center.notext:not(.media-padded){
+    padding: 0px;
+  }
+  .center{
+    padding: 0px 20px;
+  }
+
+  .index-HackMercedinPics{
+    font-size: 46px;
+  }
+  h3{
+    font-size: 17px;
+  }
+
+
+  container.notext{
+    h4{
+      font-size: 24px;
+    }
+    h1{
+      font-size: 48px;
+    }
+  }
+
+
+  label{
+    font-size: 14px;
+  }
+
+  input{
+    font-size:14px;
+    line-height: 48px;
+    padding: 0px 18px;
+  }
+
+  .gu-content input[type='submit'] {
+    margin-top: 18px;
+    width: 150px;
+    font-size: 14px;
+    padding: 0px;
+    height:50px;
+    line-height: 50px;
+    height: auto;
+  }
+
+    h1{
+      font-size: 28px;
+    }
+
+    h4{
+          font-size: 18px;
+    }
+
+  .gu-content form{
+        margin-top: 20px;
+  }
+
+  .index-il-image1{
+    width: 100%;
+  }
+  .index-il-image2{
+    display: none;
+  }
+
+  .gu-content{
+    margin: 0px 0px;
+    padding: 40px 0px;
+  }
+
+  .gu-exit{
+    bottom:27px;
+    top:auto;
+    position: fixed;
+    right: 27px;
+  }
+
+
+}
+
+@media screen and (max-width:610px) {
+  .index-HackForTheFuture {
+    margin-top: 79px;
+  }
+
+}
+
+@media screen and (max-width:540px) {
+
+
+
+  .lead-with-us{
+    display: none;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .index-HackMercedinPics{
+    font-size: 38px;
+  }
+}
