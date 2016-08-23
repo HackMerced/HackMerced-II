@@ -6,8 +6,9 @@ function launchIndex(){
 
 
   $(".index-HackForTheFuture").parent().mouseenter(function(){
+    var size = $(".isFull .content").width();
     $(".index-HF2").animate({
-      width:780
+      width:size - 120
     }, 500)
   });
 

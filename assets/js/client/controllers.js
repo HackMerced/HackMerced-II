@@ -23,7 +23,7 @@ $(document).on("click", ".gu-exit", function(){
 
 });
 
-$(document).on("click", "#getUpdates", function(){
+$(document).on("click", ".getUpdates", function(){
   $(".get-updates").css("display", "block");
   $(".gu-exit").css("display", "flex");
   $("content, body").css("overflow-y", "hidden");
@@ -37,7 +37,7 @@ $(document).on("click", "#getUpdates", function(){
   }
 
   $(".get-updates-underlay").css("margin-top", -(size/4));
-  $(".get-updates-underlay").css("margin-left", -(size/4));
+  $(".get-updates-underlay").css("margin-right", -(size/4));
 
   $(".get-updates-underlay").animate({
     width: size,

@@ -6,6 +6,7 @@
 body, html{
     margin: 0px;
     padding: 0px;
+    overflow-x: hidden;
     font-family: $body-font;
     font-size: $body-font-size;
     line-height: $body-line-height;
@@ -94,7 +95,7 @@ a{
   position: relative;
   padding: 0px 60px;
   max-width: 1440px;
-  min-width: calc(1200px + 60px);
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -131,6 +132,10 @@ button{
   }
 
 
+}
+
+button:hover, a:hover, a.noline:hover{
+  text-decoration: none;
 }
 
 input[type='submit']{
@@ -291,6 +296,7 @@ li {
 // load style
 a.load{
   position: relative;
+  width: auto;
 }
 
 a.load::after{
@@ -299,12 +305,34 @@ a.load::after{
   position: absolute;
   bottom: 0px;
   left: 0px;
+  display: block;
   background: $black;
   width: 0;
   border-radius: 4px;
+
+  -webkit-transition: width 500ms;
   transition: width 500ms;
+
 }
 
 a.load.selected::after, a.load:hover::after{
   width: 100%;
+}
+
+
+
+
+// make it compatible with iphones
+input {
+    -webkit-appearance: none;
+}
+
+// make it compatible with chrome
+*:hover{
+  text-decoration: none;
+}
+
+*:focus{
+  text-decoration: none;
+  outline: none;
 }
