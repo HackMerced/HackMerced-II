@@ -1,0 +1,132 @@
+
+
+body.dark{
+
+  header{
+    @include whiteHeader();
+
+    z-index: 10;
+    color: #fff;
+  }
+
+  p{
+    color: #534E5F;
+  }
+}
+
+
+// will probably only exist here
+h6{
+  &.infobox:nth-child(1){
+    margin-top: 0px;
+  }
+
+  &.infobox{
+    margin-top: 50px;
+  }
+}
+
+
+.backgroundUnderlay{
+  opacity: 0;
+  position: absolute;
+  z-index: 0;
+  height: 5542px;
+  width: 100%;
+  top: 0px;
+
+
+  &.purpleToBlue{
+    background-image: linear-gradient(-180deg, #59009B 0%, #00BCAC 99%);
+  }
+}
+
+.sponsor-primaryCTA{
+  margin-top: 25px;
+  display: flex;
+
+  .CTA{
+    font-size: 18px;
+    line-height: 66px;
+    padding: 0px 30px;
+    margin-right: 30px;
+  }
+}
+
+.sponsor-main_block_1{
+  margin-top: 135px;
+}
+
+.sponsor-SpacedTop{
+  margin-top: 30px !important;
+}
+
+.sponsor-SpacedLeft{
+  margin-left:30px;
+}
+
+.sponsor-expectedHackers{
+  height: 345px;
+}
+
+.sponsor-StudentParticipants{
+  height: 753px;
+}
+
+.sponsor-smaller-content{
+  padding: 30px 30px;
+}
+
+.sponsor-chartAttendence{
+  width: 100%;
+  height: auto;
+
+  .c3-gauge-value{
+    display: none;
+  }
+
+  .c3-chart-arcs-gauge-min, .c3-chart-arcs-gauge-max{
+    font-size: 12px;
+  }
+
+  .c3-chart-arcs-background{
+    fill: #E0E0E0;
+  }
+}
+
+.sponsor-chartAttendence-text{
+  width: 200px;
+  position: absolute;
+  margin-top: -16px;
+  margin-left: 44px;
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+}
+
+.sponsor-expectedHackers{
+  .sponsor-expectedHackers-text{
+    margin-top: 50px;
+  }
+
+}
+
+.sponsor-rotate-image{
+  margin-bottom:57px;
+  
+  img{
+    opacity: 0;
+    display: none;
+  }
+
+  img:nth-child(1){
+    display: block;
+    opacity: 1;
+  }
+
+
+}
+
+.sponsor-HelixAd{
+  height: 300px;
+}

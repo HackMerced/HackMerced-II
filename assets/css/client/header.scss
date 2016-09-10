@@ -1,3 +1,22 @@
+@mixin whiteHeader(){
+  color: #fff;
+
+  .logo{
+    background-image: url("/img/hackathon_brand/transparent_logo_white_by_normal.png");
+
+    &.withText::after{
+      color: #fff;
+    }
+  }
+  nav a{
+    color: #fff;
+
+    &::after{
+      background: #fff;
+    }
+  }
+}
+
 header {
   margin: 78px 0px;
 

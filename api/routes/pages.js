@@ -20,4 +20,8 @@ module.exports = function(app, keys) {
   app.get('/contact', function(req, res){
       res.render('client/index', {status:keys.status});
   });
+
+  app.get('/sponsor', function(req, res){
+      res.render('client/index', {status:keys.status});
+  });
 };

@@ -36,8 +36,16 @@ h1, h2, h3, h4, h5, h6, p, text{
     color: $yellow;
   }
 
+  &.hiYellow{
+    color:$hiYellow;
+  }
+
   &.black{
     color: $black;
+  }
+
+  &.bold{
+    font-weight: bold;
   }
 }
 
@@ -73,6 +81,17 @@ h5{
 h6{
   color: $font-grey;
   font-size: 18px;
+
+  &.infobox{
+    background: $black;
+    color: $white;
+
+    display: inline-block;
+    padding: 3px 20px 0px;
+    line-height: 50px;
+    box-sizing: border-box;
+    height: 50px;
+  }
 }
 
 
@@ -119,6 +138,7 @@ button{
   background-color: $white;
 
   @include colorObjects();
+  @include overrides();
 
   &.text-center{
     text-align: center;
@@ -130,6 +150,7 @@ button{
     min-width: 240px;
     margin: 40px 0px;
   }
+
 
 
 }
@@ -168,6 +189,7 @@ input{
 // paragraphs and subtext
 p {
   max-width: 600px;
+  line-height: 2;
   margin: 20px 0px;
 
   a {
@@ -239,6 +261,7 @@ p {
     transform: rotate(360deg);
   }
 }
+
 
 
 // loader actuals
@@ -335,4 +358,32 @@ input {
 *:focus{
   text-decoration: none;
   outline: none;
+}
+
+
+// c3 modifications
+
+.c3-tooltip-container{
+  table{
+    background: $white;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.18);
+    border-radius: 2px;
+    padding: 10px;
+
+    tr{
+      td:nth-child(1){
+        padding-right: 20px;
+      }
+    }
+  }
+
+
+}
+
+.sponsor-StudentParticipants{
+  img{
+    display: block;
+    margin: 0px auto 57px;
+    width: 80%;
+  }
 }

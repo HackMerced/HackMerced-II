@@ -18,8 +18,14 @@ section{
   color: inherit;
   height: 400px;
 
+
+  &.partOfBackGround{
+    background-color: transparent;
+    height: auto;
+  }
+
   .text{
-  
+
   }
 
 
@@ -38,13 +44,17 @@ section{
     font-size: 14px;
   }
 
-  .content{
+  .content, .small-content{
     padding: 40px; // default padding
     height: 100%;
     width: 100%;
     box-sizing: border-box;
     position: relative;
     z-index: 1;
+  }
+
+  .small-content{
+    padding: 50px 60px;
   }
 
 

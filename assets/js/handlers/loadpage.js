@@ -4,7 +4,8 @@ var catchphrases = [
   'git commit -am "my hack 2017"',
   "Just add Node.js",
   "SELECT * FROM hacks",
-  "Reticulating Splines"
+  "Reticulating Splines",
+  "#harambe"
 ]
 
 
@@ -12,10 +13,24 @@ function chooseCatchPhrase(){
   $(".loader-o-text").text(catchphrases.chooseOne());
 }
 
+
+function leavingPage(page, resolve){
+
+  if(leavePage[page]){
+    leavePage[page](function(){
+      resolve();
+    });
+  } else {
+
+    resolve();
+  }
+}
+
 function preLoad(resolve){
   if(!$("preload").data("loaded")){
     $("preload").data("loaded", true);
     chooseCatchPhrase();
+
     resolve();
   }
 }
@@ -29,7 +44,7 @@ function startUpScripts(){
 //
 window.onpopstate = function(){
   preLoad(function(){
-    onLoad();
+    onLoad(false);
   });
 };
 
@@ -43,13 +58,14 @@ $(document).ready(function(){
   preLoad(function(){
 
 
-    onLoad();
+    onLoad(false);
   });
 
 });
 
 $(document).on("click", ".load", function(){
   var that = this;
+  var oldPage = getCurrentPage();
 
   preLoad(function(){
 
@@ -71,8 +87,11 @@ $(document).on("click", ".load", function(){
         }, 500, function(){
           if(last){
             last = false;
-            setPage(page, page)
-            loadPage(page);
+            setPage(page, page);
+            leavingPage(oldPage, function(){
+              loadPage(page);
+            });
+
           }
         });
       }, delay)
@@ -92,10 +111,14 @@ function setPage(page, title, part){
   history.pushState({}, title, "/" + page + ((part) ? "#" + part : "") );
 }
 
+function getCurrentPage(){
+  return window.location.pathname.split('/')[1];
+}
+
 
 function onLoad(){
   if (typeof history.pushState === "function") {
-    var page = window.location.pathname.split('/')[1];
+    var page = getCurrentPage();
 
 
     loadPage(page);
@@ -137,19 +160,22 @@ function loadPage(page){
     }
 
 
-    // load header
+    // load page
     $.ajax({
         url: "/html/" + getService() + "/" + page + ".html",
         type: "GET",
         success: function(results){
-
+          $("body").attr("data-page", page);
           $("content").html(results);
+
           loadingAnimations(function(){
             load = false;
 
-            if(page && runPage[page]){
-                runPage[page]();
 
+            if(page && runPage[page]){
+              runPage[page]();
+            } else {
+              runPage["default"]();
             }
 
             $("preload").data("loaded", false);
@@ -171,8 +197,21 @@ var runPage = {
   },
   2016:function(){
     launch2016();
+  },
+  sponsor:function(){
+    launchSponsor();
+  },
+  default:function(){
   }
 }
+
+var leavePage = {
+  sponsor:function(resolve){
+    leaveSponsor(resolve);
+  },
+};
+
+
 
 
 function loadingAnimations(resolve){

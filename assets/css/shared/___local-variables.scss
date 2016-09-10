@@ -28,6 +28,7 @@ $darkblue: #232648;
 $blue: #364B91;
 $lightblue: #73C5FF;
 $yellow: #E5DE7A;
+$hiYellow: #E9B201; // for high contrast environments
 
 $black: #090909; // True black sucks
 $white: #fff; // don't change
@@ -44,6 +45,19 @@ $font-grey: #8C8C8C;
   color:$black;
   background-color: $yellow;
 }
+
+@mixin makeObjectWhite(){
+  color:$black;
+  background-color: $white;
+}
+
+
+@mixin makeObjectHiYellow(){
+  color:$white;
+  background-color: $hiYellow;
+}
+
+
 
 @mixin makeObjectBlack(){
   color:$white;
@@ -83,8 +97,16 @@ $font-grey: #8C8C8C;
     @include makeObjectYellow();
   }
 
+  &.hiYellow{
+    @include makeObjectHiYellow();
+  }
+
   &.black{
     @include makeObjectBlack();
+  }
+
+  &.white{
+    @include makeObjectWhite();
   }
 }
 
@@ -111,6 +133,33 @@ $font-grey: #8C8C8C;
 
   &.isTotal{
       height: auto;
+  }
+
+  &.is812{
+    width: 812px;
+  }
+
+  &.is785{
+    width: 785px;
+  }
+
+  &.is345{
+    width: 345px;
+  }
+
+}
+
+@mixin colorOverrides(){
+  &.ToWhiteText{
+    color: #fff;
+  }
+
+
+}
+
+@mixin overrides(){
+  &.override {
+    @include colorOverrides();
   }
 }
 
