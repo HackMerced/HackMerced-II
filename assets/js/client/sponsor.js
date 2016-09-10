@@ -26,59 +26,63 @@ function runSponor(){
   // run all the scripts starting here for sponors
   $("body").addClass("dark");
   generateArcAboutAttendence();
+  generateArcAboutBudget();
 
 
-  playHelixAd("#sponsor_playHelixAd")
+//  playHelixAd("#sponsor_playHelixAd");
+
 
   //runSchoolsAttending();
 }
 
 
-function runSchoolsAttending(){
-  setInterval(function(){
-    var count = 0;
-    $(".sponsor-rotate-image").each(function(){
-      var that = this;
+function sentStudents(){
+  var count = 0;
+  $(".sponsor-rotate-image").each(function(){
+    var that = this;
 
-      setTimeout(function(){
-        var first_child = $(that).find("img:visible").eq(0);
+    setTimeout(function(){
+      var first_child = $(that).find("img:visible").eq(0);
 
-        var nextIndex = 1;
-        if(first_child.index() < ($(that).find("img").length - 1)){
-          nextIndex = first_child.index() + 2;
-        }
+      var nextIndex = 1;
+      if(first_child.index() < ($(that).find("img").length - 1)){
+        nextIndex = first_child.index() + 2;
+      }
 
-        var second_child = $(that).find("img:nth-child(" + nextIndex + ")");
+      var second_child = $(that).find("img:nth-child(" + nextIndex + ")");
 
-        if(first_child.css("display") === "none"){
-          first = second_child;
-          second = first_child;
-        } else {
-          first = first_child;
-          second = second_child;
-        }
+      if(first_child.css("display") === "none"){
+        first = second_child;
+        second = first_child;
+      } else {
+        first = first_child;
+        second = second_child;
+      }
 
-        first.animate({
-          opacity:0
+      first.animate({
+        opacity:0
+      }, 500, function(){
+        first.css("display","none");
+        second.css("display","block");
+
+
+
+        second.animate({
+          opacity:1
         }, 500, function(){
-          first.css("display","none");
-          second.css("display","block");
 
-
-
-          second.animate({
-            opacity:1
-          }, 500, function(){
-
-          });
         });
+      });
 
-      }, 1200*count);
-      count++;
-    })
+    }, 1200*count);
+    count++;
+  })
+}
+function runSchoolsAttending(){
+  sentStudents();
 
-
-
+  setInterval(function(){
+    sentStudents();
   }, 5000);
 }
 
@@ -108,6 +112,29 @@ function generateArcAboutAttendence(){
       },
       size: {
 
+      }
+  });
+}
+
+function generateArcAboutBudget(){
+  var chart2 = c3.generate({
+      bindto:".sponsor-budgetLastYear",
+      legend: {
+        show: false
+      },
+      data: {
+          columns: [
+              ['Food+Water+Snacks', 40],
+              ['Hardware', 20],
+              ['Swag', 15],
+              ['Reimbursments', 18],
+              ['Services/Servers', 2],
+              ['Surprises+Events', 5],
+          ],
+          type: 'donut',
+      },
+      color: {
+          pattern: ['#3253A3', "#256EA5", "#1D80A7", "#158FA8", "#06AEAB", "#00BCAC"], // the three color levels for the percentage values.
       }
   });
 }

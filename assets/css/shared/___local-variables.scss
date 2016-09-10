@@ -140,7 +140,8 @@ $font-grey: #8C8C8C;
   }
 
   &.is785{
-    width: 785px;
+    min-width: 785px;
+    width:calc(100% - 375px);
   }
 
   &.is345{

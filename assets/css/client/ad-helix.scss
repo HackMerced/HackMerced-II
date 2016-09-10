@@ -1,0 +1,35 @@
+.ad-helix-container{
+  font-family: "Consolas", "Lucida Console", sans-serif;
+}
+
+
+.ad-helix-user{
+  float: left;
+  width: 100px;
+  height: 100%;
+}
+
+.ad-helix-content{
+  width: calc(100% - 100px);
+  float: left;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.ad-helix-post{
+  width: 100%;
+}
+
+
+.ad-helix-content-response{
+  color:$blue;
+}
+
+
+.ad-helix-post:nth-child(1){
+  margin-top: 0px;
+}
+
+.ad-helix-post{
+  margin-top: 20px;
+}

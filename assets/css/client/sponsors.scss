@@ -22,7 +22,7 @@ h6{
   }
 
   &.infobox{
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }
 
@@ -53,10 +53,6 @@ h6{
   }
 }
 
-.sponsor-main_block_1{
-  margin-top: 135px;
-}
-
 .sponsor-SpacedTop{
   margin-top: 30px !important;
 }
@@ -70,7 +66,7 @@ h6{
 }
 
 .sponsor-StudentParticipants{
-  height: 753px;
+  height: 816px;
 }
 
 .sponsor-smaller-content{
@@ -113,7 +109,7 @@ h6{
 
 .sponsor-rotate-image{
   margin-bottom:57px;
-  
+
   img{
     opacity: 0;
     display: none;
@@ -128,5 +124,106 @@ h6{
 }
 
 .sponsor-HelixAd{
-  height: 300px;
+  height: auto;
+}
+
+
+.sponsor-ref-quote{
+  width: 600px;
+  float: left;
+  margin: 23px 00px 00px 40px;
+}
+
+.sponsor-ref-logo{
+  width: calc(100% - 640px);
+  height: 320px;
+  background-size: 300px auto;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.sponsor-ref-text{
+  font-weight: 300;
+  font-size: 21px;
+  border-radius: 2px;
+  margin-top: 40px;
+}
+
+.sponsor-ref-person{
+  margin-top: 10px;
+  font-weight: 200;
+  color: #7e7e7e;
+}
+
+.sponsor-budgetLastYear{
+  height: 260px;
+  margin-top: 10px;
+
+  .c3-chart-arcs{
+      text{
+        fill:#fff;
+      }
+  }
+}
+
+.sponsor-main-block{
+  p{
+    font-size: 18px;
+  }
+
+}
+
+
+.sponsor-cta-block{
+  margin-bottom: 135px;
+}
+
+
+section.sponsor-shippingYou{
+  height: 505px ;
+}
+
+
+.st-options{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 8px;
+  > * {
+    width: 19%;
+    font-weight: bold;
+    text-align: center;
+    height: 60px;
+    position: relative;
+    padding-top: 6px;
+    box-sizing: border-box;
+
+  }
+
+  .st-selector{
+    padding-top: 17px;
+  }
+
+  .st-option{
+    border: 1px solid #DCDCDC;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+
+    &.selected, &:hover{
+      background-color: #2470A5;
+      color: #fff;
+      border-color: transparent;
+    }
+  }
+
+  .st-option::after{
+    content: attr(data-specific);
+    position: absolute;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 25px;
+    left: 0px;
+    width: 100%;
+  }
 }
