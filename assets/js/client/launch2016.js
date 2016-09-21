@@ -1,9 +1,9 @@
 function showCurrentRow(){
-  var current = $(window).scrollTop() + $(window).height();
-  var delay = 0;
+  const current = $(window).scrollTop() + $(window).height();
+  let delay = 0;
 
   $(".image-shareImages section.transparent-content").each(function(){
-    var that = this;
+    const that = this;
 
     if(current >= parseFloat($(that).offset().top)){
       setTimeout(function(){
@@ -28,7 +28,7 @@ function showCurrentRow(){
 
 function launch2016(){
   function loadImage(item){
-    var image = "https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/" + item + ".jpg"
+    const image = "https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/" + item + ".jpg"
     return "" +
            "<section class='is33 isLeft withAP transparent-content'>" +
            "<div class='APstats'><div class='button'>Download</div></div>" +
@@ -37,9 +37,9 @@ function launch2016(){
   }
 
 
-  var html = "";
+  let html = "";
 
-  for(var i = 1; i < 19; i++){
+  for(let i = 1; i < 19; i++){
     if(i === 5){
       html += $(".stats-2016").html();
     }

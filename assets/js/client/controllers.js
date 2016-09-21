@@ -28,9 +28,9 @@ $(document).on("click", ".getUpdates", function(){
   $(".gu-exit").css("display", "flex");
   $("content, body").css("overflow-y", "hidden");
 
-  var size_x = $(window).width()*2;
-  var size_y = $(window).height()*2;
-  var size = size_x;
+  const size_x = $(window).width()*2;
+  const size_y = $(window).height()*2;
+  let size = size_x;
 
   if($size_x < size_y){
     size = size_y;

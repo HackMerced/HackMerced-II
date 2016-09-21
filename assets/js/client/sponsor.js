@@ -47,10 +47,10 @@ $(document).on("click", ".st-option", function(){
 // uses d3js to pull csv of pricing
 function getPricingPlans(){
   d3.csv('./files/sponsor-tiers.csv', function(sponsordocs){
-    var PricingPlanHTML = "";
+    let PricingPlanHTML = "";
 
     function tabledata(data){
-      var selected = "";
+      let selected = "";
       data = data.toLowerCase();
 
       if(data === "ruby"){
@@ -68,7 +68,7 @@ function getPricingPlans(){
     PricingPlanHTML += "<th>Sponsor</th>";
 
     // fill contents
-      for(var tiers in sponsordocs){
+      for(let tiers in sponsordocs){
         if(sponsordocs[tiers] && sponsordocs[tiers]["Sponsor Type"]){
           PricingPlanHTML += "<th " +  tabledata(sponsordocs[tiers]["Sponsor Type"])  + ">";
           PricingPlanHTML += sponsordocs[tiers]["Cost"]
@@ -80,7 +80,7 @@ function getPricingPlans(){
     PricingPlanHTML += "</tr>";
 
     // create rows
-    for(var items in sponsordocs[0]){
+    for(let items in sponsordocs[0]){
       if(items !== "Sponsor Type" && items !== "Cost"){
         PricingPlanHTML += "<tr>";
 
@@ -89,7 +89,7 @@ function getPricingPlans(){
         PricingPlanHTML += items
         PricingPlanHTML += "</td>";
 
-        for(tiers in sponsordocs){
+        for(let tiers in sponsordocs){
           if(sponsordocs[tiers] && sponsordocs[tiers]["Sponsor Type"]){
 
             PricingPlanHTML += "<td " +  tabledata(sponsordocs[tiers]["Sponsor Type"])  + ">";
