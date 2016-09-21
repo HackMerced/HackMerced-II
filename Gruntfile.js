@@ -33,34 +33,45 @@ module.exports = function(grunt) {
                     style: 'expanded'
                 },
                 files: {
-                    './public/css/client.css': './assets/parse/client-parse.scss'
+                    './public/css/client.css': './assets/parse/css/client-parse.scss'
                 }
             },
         },
         babel: {
-          options: {
-              sourceMap: true,
-              presets: ['es2015']
-          },
-          dist: {
-              files: {
-                  './assets/js/handlers/*.js' : './assets/parse/js/handlers/*.js',
-                  // './assets/js/client/*.js' : './assets/parse/js/client/*.js',
-              }
-          }
-       },
+            options: {
+                sourceMap: false,
+                presets: ['es2015']
+            },
+            dist: {
+                files: [
+                  {
+                      "expand": true,
+                      "cwd": "assets/js/client/",
+                      "src": ["**/*.js"],
+                      "dest": "assets/parse/js/",
+                      "ext": ".js"
+                  },
+                  {
+                    "expand": true,
+                    "cwd": "assets/js/handlers/",
+                    "src": ["**/*.js"],
+                    "dest": "assets/parse/js/",
+                    "ext": ".js"
+                }
+              ]
+            }
+        },
         concat: {
             js_client: {
                 src: [
                     './assets/js/shared/*.js',
-                    './assets/parse/js/handlers/*.js',
-                    './assets/parse/js/handlers/client/*.js'
+                    './assets/parse/js/*.js',
                 ],
-                dest: './assets/parse/client-es6.js',
+                dest: './public/js/client.js',
             },
             scss_client: {
               src: ['./assets/css/import/*.scss', './assets/css/shared/*.scss', './assets/css/client/*.scss'],
-              dest: './assets/parse/client-parse.scss'
+              dest: './assets/parse/css/client-parse.scss'
             },
         },
         uglify: {
@@ -83,7 +94,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['./assets/js/**/*.js'],
-                tasks: ['concat'/*, 'uglify'*/], // DO NOT WATCH FOR UGLIFY
+                tasks: ['babel', 'concat'/*, 'uglify'*/], // DO NOT WATCH FOR UGLIFY
                 options: {
                     spawn: false,
                 },

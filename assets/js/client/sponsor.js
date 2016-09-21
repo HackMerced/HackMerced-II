@@ -125,19 +125,19 @@ function runSponsor(){
 
 // function controlling where the students from schools are sent from to hackmerced
 function sentStudents(){
-  var count = 0;
+  let count = 0;
   $(".sponsor-rotate-image").each(function(){
-    var that = this;
+    const that = this;
 
     setTimeout(function(){
-      var $first_child = $(that).find("img:visible").eq(0);
+      const $first_child = $(that).find("img:visible").eq(0);
 
-      var nextIndex = 1;
+      let nextIndex = 1;
       if($first_child.index() < ($(that).find("img").length - 1)){
         nextIndex = $first_child.index() + 2;
       }
 
-      var $second_child = $(that).find("img:nth-child(" + nextIndex + ")");
+      let $second_child = $(that).find("img:nth-child(" + nextIndex + ")");
 
       if($first_child.css("display") === "none"){
         first = $second_child;
@@ -178,7 +178,7 @@ function runSchoolsAttending(){
 
 // generates a graph
 function generateArcAboutAttendence(){
-  var chart = c3.generate({
+  const chart_attendance = c3.generate({
       bindto:".sponsor-chartAttendence",
       data: {
           columns: [
@@ -210,7 +210,7 @@ function generateArcAboutAttendence(){
 // refer to internal budget doc when updating
 // TODO: sync with our internal doc
 function generateArcAboutBudget(){
-  var chart2 = c3.generate({
+  const chart_budget = c3.generate({
       bindto:".sponsor-budgetLastYear",
       legend: {
         show: false
