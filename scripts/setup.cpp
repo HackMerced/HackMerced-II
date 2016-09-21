@@ -25,8 +25,10 @@ int main(){
     int arr_length = ARRAYSIZE(services);
 
 
-    string *development_keys = new string[arr_length];
-    string *production_keys = new string[arr_length];
+    string *development_keys_client = new string[arr_length];
+    string *development_keys_secret = new string[arr_length];
+    string *production_keys_client = new string[arr_length];
+    string *production_keys_secret = new string[arr_length];
 
     cout << "Welcome to HackMerced's main website setup\n";
     cout << "Please enter the following keys to generate the proper keyfile";
@@ -34,10 +36,14 @@ int main(){
 
     // enter services
     for(int i = 0; i < arr_length; i++){
-      cout << "What is your " << services[i] << " development key: ";
-      cin >> development_keys[i];
-      cout << "What is your " << services[i] << " production key: ";
-      cin >> production_keys[i];
+      cout << "What is your " << services[i] << " development key client/id: ";
+      cin >> development_keys_client[i];
+      cout << "What is your " << services[i] << " development key secret: ";
+      cin >> development_keys_secret[i];
+      cout << "What is your " << services[i] << " production key client/id: ";
+      cin >> production_keys_client[i];
+      cout << "What is your " << services[i] << " production key secret: ";
+      cin >> production_keys_secret[i];
     }
 
 
@@ -48,8 +54,8 @@ int main(){
 
     for(int i = 0; i < arr_length; i++){
       file << " var " << services[i] << "_keys = {\n";
-      file << "   development:'" << development_keys[i] << "',\n";
-      file << "   production:'" << production_keys[i] << "',\n";
+      file << "   development:{ client:'" << development_keys_client[i] << "', secret:'" << development_keys_secret[i] << "' },\n";
+      file << "   production:{ client:'" << production_keys_client[i] << "', secret:'" << production_keys_secret[i] << "' },\n";
       file << " }\n";
     }
 
