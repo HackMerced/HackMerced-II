@@ -49,7 +49,6 @@ test/nightwatch_servlet/node_modules
 public
 
 #any parse files
-assets/parse
 assets/parse/*
 
 
@@ -57,5 +56,10 @@ assets/parse/*
 .~lock.*
 
 #keys and keyfiles
-assets/keys
 assets/keys/*
+
+
+#C++ outputs
+*.o
+*.out
+*.dSYM

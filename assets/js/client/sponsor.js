@@ -32,13 +32,12 @@ var TierDescriptions = {
 }
 
 $(document).on("click", ".st-option", function(){
-  var $tier = $(this).text().toLowerCase();
+  var tier = $(this).text().toLowerCase();
 
-  $(".sponsor-TierTable h3 > text").text($tier);
-  $(".sponsor-TierDescription").text(TierDescriptions[$tier]);
+  $(".sponsor-TierTable h3 > text").text(tier);
+  $(".sponsor-TierDescription").text(TierDescriptions[tier]);
   $(".st-option").removeClass("selected");
   $(this).addClass("selected");
-
 
   $(".sponsor-tier-item").removeClass("selected");
   $(".sponsor-tier-item[data-tier='" + tier + "']").addClass("selected");
@@ -47,6 +46,7 @@ $(document).on("click", ".st-option", function(){
 // uses d3js to pull csv of pricing
 function getPricingPlans(){
   d3.csv('./files/sponsor-tiers.csv', function(sponsordocs){
+
     let PricingPlanHTML = "";
 
     function tabledata(data){
