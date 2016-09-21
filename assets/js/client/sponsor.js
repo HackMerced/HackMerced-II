@@ -23,6 +23,37 @@ function leaveSponsor(resolve){
   });
 }
 
+
+// send the message to sponsor@hackmerced.com from whoever
+$(document).on("click", ".sponsor-submit-button", function(e){
+
+  const $button = $(this);
+  const $sendContainer =  $(".sponsor-SendMessage");
+
+  // get info from html
+  const send = {
+    send:$("#sponsor-YourEmail").val(),
+    message:$("#sponsor-YourEmail").val()
+  };
+
+  $button.text("Sending...");
+
+  $.ajax({
+      url: "/sponsor/email",
+      type: "POST",
+      data: send,
+      success: function(results){
+        $sendContainer.fadeOut();
+      },
+      error:function(error){
+        $button.addClass("red");
+        $button.text(error.statusText);
+      },
+    });
+
+  e.preventDefault();
+});
+
 // chose a pricing plan
 var TierDescriptions = {
   "ruby":"Ruby sponsorships are meant for everyone and come with a wide range of choice and benefits",

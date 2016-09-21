@@ -219,6 +219,7 @@ section.sponsor-shippingYou{
 
 
 .sponsor-TierTable{
+  transition: height 500ms ease-in;
 
   h3 > text{
     text-transform: capitalize;
@@ -288,6 +289,8 @@ section.sponsor-shippingYou{
 }
 
 .sponsor-submit-button{
+  background-color: $sponsor-background-color;
+  color: $white;
   padding: 18px 30px;
 }
 
@@ -295,9 +298,9 @@ section.sponsor-shippingYou{
      h6:not(.infobox), .CTA.white{
       color: $sponsor-background-color;
     }
-    .infobox, .sponsor-submit-button{
+    .infobox {
       background-color: $sponsor-background-color;
-      color: #fff;
+      color: $white;
     }
 
     // used to override

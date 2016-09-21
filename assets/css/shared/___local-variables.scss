@@ -28,6 +28,7 @@ $darkblue: #232648;
 $blue: #364B91;
 $lightblue: #73C5FF;
 $yellow: #E5DE7A;
+$red: #bf2d2d;
 $hiYellow: #E9B201; // for high contrast environments
 
 $black: #090909; // True black sucks
@@ -49,6 +50,11 @@ $font-grey: #8C8C8C;
 @mixin makeObjectWhite(){
   color:$black;
   background-color: $white;
+}
+
+@mixin makeObjectRed(){
+  color:$white;
+  background-color: $red;
 }
 
 
@@ -107,6 +113,10 @@ $font-grey: #8C8C8C;
 
   &.white{
     @include makeObjectWhite();
+  }
+
+  &.red{
+    @include makeObjectRed();
   }
 }
 
