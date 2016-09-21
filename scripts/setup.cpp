@@ -10,6 +10,7 @@ using namespace std;
 int main(){
 
   // start file
+  ofstream file;
   file.open ("../assets/keys/keys.js");
 
   //TODO: allow access to a keyserver and retrieve specific keys that way instead of this manual way
@@ -37,25 +38,25 @@ int main(){
 
   cout << "\n";
 
-  ofstream file;
+
 
 
   file << "module.exports = function(status)  {\n";
   file << "if (!status) {\n";
-  file << "   status = 'development'\n";
+  file << " status = 'development'\n";
   file << "}\n";
 
   for(int i = 0; i < arr_length; i++){
     file << "var " << services[i] << "_keys = {\n";
-    file << " development:'" << development_keys[i] << "',\n";
+    file << "  development:'" << development_keys[i] << "',\n";
     file << " production:'" << production_keys[i] << "',\n";
     file << "}\n";
   }
 
   file << "return {\n";
-  file << "     status:status,\n";
+  file << " status:status,\n";
   for(int i = 0; i < arr_length; i++){
-    file << services[i] << ":" << services[i] << "_keys[status],\n";
+    file << " " << services[i] << ":" << services[i] << "_keys[status],\n";
   }
 
   file << "    }\n";
