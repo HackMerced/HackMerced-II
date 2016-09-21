@@ -1,11 +1,11 @@
-## HackMerced Website
+# HackMerced Website
 [Live Site](//hackmerced.com)
 
 This repository is used to store the files for HackMerced's core website. Feel free to use it as long as you comply with our license.
 
 ## Installation ##
 
-HackMerced's website runs on top of node.js and requires you to install `node.js`, `npm`, `grunt`;
+HackMerced's website runs on top of node.js and requires you to install `node.js`, `npm`, and `grunt`
 
 Once you've installed the prerequistes you will need to run the following command to run packages.
 
