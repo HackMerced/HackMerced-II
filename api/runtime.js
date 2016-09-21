@@ -36,16 +36,15 @@ module.exports = function(status){
   // warning
   if(keys.status === "development"){
     console.log(
-      "\n" +
-      "******************************************************************\n" +
-      "***YOU ARE CURRENTLY RUNNING A DEVELOPMENT VERSION OF HACKMERCED***\n" +
-      "******************************************************************\n" +
-      "\nPlease make sure you are developing right now, and not using this\n" +
-      "for production." +
-      "\n" +
-      "\nTo set up server for production, please use node production.js." +
-      "\n\n" +
-      "******************************************************************\n"
+      `\n******************************************************************
+       \n***YOU ARE CURRENTLY RUNNING A DEVELOPMENT VERSION OF HACKMERCED**
+       \n******************************************************************
+       \nPlease make sure you are developing right now, and not using this
+       \nfor production.
+       \n
+       \nTo set up server for production, please use node production.js.
+       \n******************************************************************
+       \n`
     );
     }
 
