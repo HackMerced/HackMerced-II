@@ -164,27 +164,51 @@ input[type='submit']{
 }
 
 
-//label
+//label and inputs
+form{
+  margin: 40px 0px;
+
+}
 
 label{
   display: block;
   font-size: 18px;
-  color: #FFFFFF;
+  color: inherit;
+  margin-bottom: 10px;
 }
 
 
 // input
-input{
-  width: 600px;
-  padding: 0px 22px;
+input, textarea{
+  max-width: 760px;
+  width: 100%;
+  padding: 15px 22px;
   height: auto;
   border-radius: 2px;
   font-size: 18px;
   border: 0px;
+
   box-sizing: border-box;
   box-shadow: none;
-  line-height: 68px;
+  line-height: 2;
+
+  &.onWhite{
+    background: #F4F4F4;
+  }
 }
+
+textarea{
+  resize: none;
+  padding: 22px 22px;
+  height: 300px;
+}
+
+.form-block{
+  margin-bottom: 30px;
+}
+
+
+
 
 // paragraphs and subtext
 p {
@@ -395,4 +419,43 @@ input {
 
 @keyframes blink {
   50% { opacity: 0.0; }
+}
+
+@mixin whiteHeader(){
+  color: #fff;
+
+  .logo{
+    background-image: url("/img/hackathon_brand/transparent_logo_white_by_normal.png");
+
+    &.withText::after{
+      color: #fff;
+    }
+  }
+  nav a{
+    color: #fff;
+
+    &::after{
+      background: #fff;
+    }
+  }
+}
+
+// dark theme
+// body
+body.dark{
+
+  header{
+    @include whiteHeader();
+
+    z-index: 10;
+    color: $white;
+  }
+
+  p{
+    color: #534E5F;
+  }
+
+  footer{
+    color: $white;
+  }
 }

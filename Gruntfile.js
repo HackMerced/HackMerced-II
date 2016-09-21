@@ -37,14 +37,26 @@ module.exports = function(grunt) {
                 }
             },
         },
+        babel: {
+          options: {
+              sourceMap: true,
+              presets: ['es2015']
+          },
+          dist: {
+              files: {
+                  './assets/js/handlers/*.js' : './assets/parse/js/handlers/*.js',
+                  // './assets/js/client/*.js' : './assets/parse/js/client/*.js',
+              }
+          }
+       },
         concat: {
             js_client: {
                 src: [
                     './assets/js/shared/*.js',
-                    './assets/js/handlers/*.js',
-                    './assets/js/client/*.js'
+                    './assets/parse/js/handlers/*.js',
+                    './assets/parse/js/handlers/client/*.js'
                 ],
-                dest: './public/js/client.js',
+                dest: './assets/parse/client-es6.js',
             },
             scss_client: {
               src: ['./assets/css/import/*.scss', './assets/css/shared/*.scss', './assets/css/client/*.scss'],
@@ -91,7 +103,7 @@ module.exports = function(grunt) {
               }
             },
             copy:{
-              files: ['./assets/html/**/*', './assets/fonts/**/*'],
+              files: ['./assets/html/**/*', './assets/fonts/**/*', './assets/files/**/*'],
               tasks: ['copy'],
               options: {
                   spawn: false,
@@ -102,19 +114,20 @@ module.exports = function(grunt) {
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    require('load-grunt-tasks')(grunt);
+    // grunt.loadNpmTasks('grunt-contrib-concat');
+    // grunt.loadNpmTasks('grunt-contrib-sass');
+    // grunt.loadNpmTasks('grunt-contrib-jshint');
+    // grunt.loadNpmTasks('grunt-contrib-uglify');
+    // grunt.loadNpmTasks('grunt-contrib-imagemin');
+    // grunt.loadNpmTasks('grunt-contrib-watch');
+    // grunt.loadNpmTasks('grunt-contrib-copy');
+    // grunt.loadNpmTasks('grunt-contrib-clean');
+    // grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['concat', 'copy', 'sass',  'watch']);
-    grunt.registerTask('production', ['clean', 'concat', 'copy', 'uglify', 'imagemin', 'sass', "cssmin"]);
+    grunt.registerTask('default', ['babel', 'concat', 'copy', 'sass',  'watch']);
+    grunt.registerTask('production', ['clean', 'babel', 'concat', 'copy', 'uglify', 'imagemin', 'sass', "cssmin"]);
     grunt.registerTask('images', ['clean', 'imagemin']);
 
 };

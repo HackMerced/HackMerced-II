@@ -32,7 +32,7 @@ $(document).on("click", ".getUpdates", function(){
   var size_y = $(window).height()*2;
   var size = size_x;
 
-  if(size_x < size_y){
+  if($size_x < size_y){
     size = size_y;
   }
 

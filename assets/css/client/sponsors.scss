@@ -1,21 +1,9 @@
 // initialize variables
 
 $sponsor-background-color:#0B3566;
+$sponsor-border-config: 1px solid #DCDCDC;
 
-// body
-body.dark{
 
-  header{
-    @include whiteHeader();
-
-    z-index: 10;
-    color: #fff;
-  }
-
-  p{
-    color: #534E5F;
-  }
-}
 
 
 
@@ -23,13 +11,12 @@ body.dark{
 
 .backgroundUnderlay{
   opacity: 0;
-  position: absolute;
+  position: fixed;
   z-index: 0;
-  height: 5542px;
   width: 100%;
   top: 0px;
   background-color: $sponsor-background-color;
-
+  height: 100%;
 
   &.purpleToBlue{
     background-image: linear-gradient(-180deg, #59009B 0%, #00BCAC 99%);
@@ -204,7 +191,7 @@ section.sponsor-shippingYou{
   }
 
   .st-option{
-    border: 1px solid #DCDCDC;
+    border: $sponsor-border-config;
     border-radius: 2px;
     position: relative;
     cursor: pointer;
@@ -230,12 +217,87 @@ section.sponsor-shippingYou{
 
 
 
+
+.sponsor-TierTable{
+
+  h3 > text{
+    text-transform: capitalize;
+  }
+
+  table{
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+
+    @include useLeague();
+
+    th,td{
+      padding: 15px;
+      text-align: center;
+      min-width: 119px;
+      border: $sponsor-border-config;
+    }
+
+    tr:nth-child(1) th{
+      border-top: 0px;
+    }
+
+    tr:last-child td{
+      border-bottom: 0px;
+    }
+
+    td:last-child, th:last-child{
+      border-right: 0px;
+    }
+
+
+    td:nth-child(1), th:nth-child(1){
+      text-align: right;
+      font-weight: 600;
+      border-left: 0px;
+      width: 200px;
+    }
+  }
+
+
+  .sponsor-tier-item{
+    display: none;
+  }
+
+  th.selected, td.selected{
+    display: table-cell;
+  }
+  tr.selected{
+    display: table-row;
+  }
+}
+
+.sponsor-TierTable form{
+  @include useLeague();
+
+  input, textarea{
+
+    @include useLeague();
+    font-size: 18px;
+  }
+}
+
+.sponsor-TierTable-container{
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.sponsor-submit-button{
+  padding: 18px 30px;
+}
+
 [data-page='sponsor']{
      h6:not(.infobox), .CTA.white{
       color: $sponsor-background-color;
     }
-    .infobox{
+    .infobox, .sponsor-submit-button{
       background-color: $sponsor-background-color;
+      color: #fff;
     }
 
     // used to override
@@ -245,5 +307,21 @@ section.sponsor-shippingYou{
     .sponsor-HowWeUseMoney{
       height: 859px ;
     }
+
+}
+
+@media screen and (max-width:1205px) {
+  [data-page='sponsor'] .sponsor-WhatWeHavePlanned, [data-page='sponsor'] .sponsor-HowWeUseMoney {
+      height: auto;
+  }
+
+  .st-selector{
+    display: none;
+  }
+
+  .st-options > * {
+    width: 24%;
+  }
+
 
 }

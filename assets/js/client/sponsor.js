@@ -23,33 +23,89 @@ function leaveSponsor(resolve){
   });
 }
 
+// chose a pricing plan
+var TierDescriptions = {
+  "ruby":"Ruby sponsorships are meant for everyone and come with a wide range of choice and benefits",
+  "node.js":"Node.js sponsorships are aimed to smaller companies (with ARR/assets of 80,000 or less) and organizations affiliated with the UC system",
+  "java":"Java sponsorships are for organizations that would like to provide food, such as a meal, or snacks to our students. There are a limit to the amount of food sponsors we accept.",
+  "c++":"Are you a student/faculty member with a low/no-revenue startup at UC Merced or any other UC campus and want to be represented at HackMerced? This tier is for you."
+}
+
+$(document).on("click", ".st-option", function(){
+  var $tier = $(this).text().toLowerCase();
+
+  $(".sponsor-TierTable h3 > text").text($tier);
+  $(".sponsor-TierDescription").text(TierDescriptions[$tier]);
+  $(".st-option").removeClass("selected");
+  $(this).addClass("selected");
+
+
+  $(".sponsor-tier-item").removeClass("selected");
+  $(".sponsor-tier-item[data-tier='" + tier + "']").addClass("selected");
+});
+
 // uses d3js to pull csv of pricing
 function getPricingPlans(){
-  d3.csv('./public/files/sponsor-tiers.csv', function(o){
+  d3.csv('./files/sponsor-tiers.csv', function(sponsordocs){
+    var PricingPlanHTML = "";
 
-      for(var i in o){
-        var test_case = {
-          configuration:{},
-          expected:{}
-        }
+    function tabledata(data){
+      var selected = "";
+      data = data.toLowerCase();
 
-        var count = 1;
-        for(var x in o[i]){
-
-          var formatted = x.toString().replace(/ /g, "_").toLowerCase();
-          if(count >= 11){
-            test_case.expected[formatted] = parseFloat(o[i][x])
-          } else {
-            test_case.configuration[formatted] = (o[i][x]);
-          }
-          count++;
-        }
-
-
-        test_container.push(test_case)
+      if(data === "ruby"){
+        selected = "selected";
       }
 
+      return "class='sponsor-tier-item " + selected + "' data-tier='" +  data  + "'"
+    }
 
+
+    // write the header
+    PricingPlanHTML += "<tr>";
+
+    // add blank
+    PricingPlanHTML += "<th>Sponsor</th>";
+
+    // fill contents
+      for(var tiers in sponsordocs){
+        if(sponsordocs[tiers] && sponsordocs[tiers]["Sponsor Type"]){
+          PricingPlanHTML += "<th " +  tabledata(sponsordocs[tiers]["Sponsor Type"])  + ">";
+          PricingPlanHTML += sponsordocs[tiers]["Cost"]
+          PricingPlanHTML += "</th>";
+        }
+
+      }
+
+    PricingPlanHTML += "</tr>";
+
+    // create rows
+    for(var items in sponsordocs[0]){
+      if(items !== "Sponsor Type" && items !== "Cost"){
+        PricingPlanHTML += "<tr>";
+
+        // init row
+        PricingPlanHTML += "<td>";
+        PricingPlanHTML += items
+        PricingPlanHTML += "</td>";
+
+        for(tiers in sponsordocs){
+          if(sponsordocs[tiers] && sponsordocs[tiers]["Sponsor Type"]){
+
+            PricingPlanHTML += "<td " +  tabledata(sponsordocs[tiers]["Sponsor Type"])  + ">";
+            PricingPlanHTML += sponsordocs[tiers][items];
+            PricingPlanHTML += "</td>";
+
+          }
+        }
+
+        PricingPlanHTML += "</tr>";
+      }
+
+    }
+
+
+    $(".sponsor-TierTable table").html(PricingPlanHTML);
   });
 }
 
@@ -74,21 +130,21 @@ function sentStudents(){
     var that = this;
 
     setTimeout(function(){
-      var first_child = $(that).find("img:visible").eq(0);
+      var $first_child = $(that).find("img:visible").eq(0);
 
       var nextIndex = 1;
-      if(first_child.index() < ($(that).find("img").length - 1)){
-        nextIndex = first_child.index() + 2;
+      if($first_child.index() < ($(that).find("img").length - 1)){
+        nextIndex = $first_child.index() + 2;
       }
 
-      var second_child = $(that).find("img:nth-child(" + nextIndex + ")");
+      var $second_child = $(that).find("img:nth-child(" + nextIndex + ")");
 
-      if(first_child.css("display") === "none"){
-        first = second_child;
-        second = first_child;
+      if($first_child.css("display") === "none"){
+        first = $second_child;
+        second = $first_child;
       } else {
-        first = first_child;
-        second = second_child;
+        first = $first_child;
+        second = $second_child;
       }
 
       first.animate({
@@ -138,6 +194,7 @@ function generateArcAboutAttendence(){
               show: false
           },
       min: 0,
+      max:500,
       units: ' %',
       width: 60
       },
