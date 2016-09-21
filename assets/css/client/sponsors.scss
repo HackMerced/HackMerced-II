@@ -1,5 +1,8 @@
+// initialize variables
 
+$sponsor-background-color:#0B3566;
 
+// body
 body.dark{
 
   header{
@@ -15,16 +18,7 @@ body.dark{
 }
 
 
-// will probably only exist here
-h6{
-  &.infobox:nth-child(1){
-    margin-top: 0px;
-  }
 
-  &.infobox{
-    margin-top: 20px;
-  }
-}
 
 
 .backgroundUnderlay{
@@ -34,10 +28,15 @@ h6{
   height: 5542px;
   width: 100%;
   top: 0px;
+  background-color: $sponsor-background-color;
 
 
   &.purpleToBlue{
     background-image: linear-gradient(-180deg, #59009B 0%, #00BCAC 99%);
+  }
+
+  &.blueToBluer{
+    background-image: linear-gradient(-180deg, #0B3566 0%, #0B3466 99%);
   }
 }
 
@@ -66,7 +65,7 @@ h6{
 }
 
 .sponsor-StudentParticipants{
-  height: 816px;
+  height: 815px;
 }
 
 .sponsor-smaller-content{
@@ -181,7 +180,7 @@ h6{
 
 
 section.sponsor-shippingYou{
-  height: 505px ;
+  height: 484px;
 }
 
 
@@ -211,7 +210,7 @@ section.sponsor-shippingYou{
     cursor: pointer;
 
     &.selected, &:hover{
-      background-color: #2470A5;
+      background-color: #0B3566;
       color: #fff;
       border-color: transparent;
     }
@@ -226,4 +225,25 @@ section.sponsor-shippingYou{
     left: 0px;
     width: 100%;
   }
+}
+
+
+
+
+[data-page='sponsor']{
+     h6:not(.infobox), .CTA.white{
+      color: $sponsor-background-color;
+    }
+    .infobox{
+      background-color: $sponsor-background-color;
+    }
+
+    // used to override
+    .sponsor-WhatWeHavePlanned{
+      height: 841px;
+    }
+    .sponsor-HowWeUseMoney{
+      height: 859px ;
+    }
+
 }

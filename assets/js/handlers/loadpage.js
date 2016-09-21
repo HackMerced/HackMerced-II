@@ -53,11 +53,10 @@ window.onpopstate = function(){
 $(document).ready(function(){
   startUpScripts();
 
+  // hide the nojs website
   $(".nojs").html("");
 
   preLoad(function(){
-
-
     onLoad(false);
   });
 
@@ -160,6 +159,7 @@ function loadPage(page){
     }
 
 
+
     // load page
     $.ajax({
         url: "/html/" + getService() + "/" + page + ".html",
@@ -167,6 +167,7 @@ function loadPage(page){
         success: function(results){
           $("body").attr("data-page", page);
           $("content").html(results);
+
 
           loadingAnimations(function(){
             load = false;
@@ -214,20 +215,27 @@ var leavePage = {
 
 
 
+// the loading thingy
 function loadingAnimations(resolve){
+  var overlay = $(".loader-overlay"),
+      footer = $("footer"),
+      container = $("container section");
 
-  $("container section").css("opacity", "0");
+  container.css("opacity", "0");
+  footer.css("opacity", "0");
 
 
-  var overlay = $(".loader-overlay");
   overlay.css("display", "block");
   overlay.animate({
     opacity:1
   }, 500);
 
+
+
   overlay.find(".loader-o-content").css("opacity", "1");
 
   setTimeout(function(){
+
 
     overlay.animate({
         opacity: 0
@@ -235,12 +243,18 @@ function loadingAnimations(resolve){
       overlay.css("display", "none");
     });
 
+
+
     overlay.find(".loader-o-content").animate({
       opacity:0
     }, 500, function(){
 
 
       var timeDelay = 1;
+
+      footer.animate({
+        opacity:1
+      }, 500);
 
       $("container section").each(function(){
         var delay = (timeDelay*150 + 0);
@@ -250,7 +264,7 @@ function loadingAnimations(resolve){
 
         setTimeout(function(){
 
-          $(that).animate({
+          $(that, ", footer").animate({
             opacity:1,
             "margin-top":0
           }, 500, function(){

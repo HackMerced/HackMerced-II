@@ -1,3 +1,5 @@
+
+// when launching the sponsor
 function launchSponsor(){
 
   $(".backgroundUnderlay").animate({
@@ -5,10 +7,11 @@ function launchSponsor(){
   }, 500, function(){
 
 
-    runSponor();
+    runSponsor();
   });
 }
 
+// leave the sponsor page
 function leaveSponsor(resolve){
 
   $("body").removeClass("dark");
@@ -18,24 +21,53 @@ function leaveSponsor(resolve){
 
     resolve();
   });
+}
 
+// uses d3js to pull csv of pricing
+function getPricingPlans(){
+  d3.csv('./public/files/sponsor-tiers.csv', function(o){
+
+      for(var i in o){
+        var test_case = {
+          configuration:{},
+          expected:{}
+        }
+
+        var count = 1;
+        for(var x in o[i]){
+
+          var formatted = x.toString().replace(/ /g, "_").toLowerCase();
+          if(count >= 11){
+            test_case.expected[formatted] = parseFloat(o[i][x])
+          } else {
+            test_case.configuration[formatted] = (o[i][x]);
+          }
+          count++;
+        }
+
+
+        test_container.push(test_case)
+      }
+
+
+  });
 }
 
 
-function runSponor(){
+function runSponsor(){
   // run all the scripts starting here for sponors
-  $("body").addClass("dark");
+  $("body").addClass("dark"); // changes the colorscheme
   generateArcAboutAttendence();
   generateArcAboutBudget();
 
 
 //  playHelixAd("#sponsor_playHelixAd");
 
-
-  //runSchoolsAttending();
+  getPricingPlans();
+  runSchoolsAttending();
 }
 
-
+// function controlling where the students from schools are sent from to hackmerced
 function sentStudents(){
   var count = 0;
   $(".sponsor-rotate-image").each(function(){
@@ -78,6 +110,8 @@ function sentStudents(){
     count++;
   })
 }
+
+// handler for sentstudents
 function runSchoolsAttending(){
   sentStudents();
 
@@ -86,6 +120,7 @@ function runSchoolsAttending(){
   }, 5000);
 }
 
+// generates a graph
 function generateArcAboutAttendence(){
   var chart = c3.generate({
       bindto:".sponsor-chartAttendence",
@@ -100,15 +135,14 @@ function generateArcAboutAttendence(){
               format: function(value, ratio) {
                   return value;
               },
-              show: false // to turn off the min/max labels.
+              show: false
           },
-      min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
-      max: 500, // 100 is default
+      min: 0,
       units: ' %',
-      width: 60 // for adjusting arc thickness
+      width: 60
       },
       color: {
-          pattern: ['#4D199D'], // the three color levels for the percentage values.
+          pattern: ['#0B3566'],
       },
       size: {
 
@@ -116,6 +150,8 @@ function generateArcAboutAttendence(){
   });
 }
 
+// refer to internal budget doc when updating
+// TODO: sync with our internal doc
 function generateArcAboutBudget(){
   var chart2 = c3.generate({
       bindto:".sponsor-budgetLastYear",

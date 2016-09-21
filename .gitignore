@@ -43,7 +43,7 @@ test/nightwatch_servlet/node_modules
 .sass-cache/*
 
 #dsstore
-.DS_Stiore
+.DS_Store
 
 #public should be built via grunt
 public
@@ -51,3 +51,11 @@ public
 #any parse files
 assets/parse
 assets/parse/*
+
+
+#file locks
+.~lock.*
+
+#keys and keyfiles
+assets/keys
+assets/keys/*
