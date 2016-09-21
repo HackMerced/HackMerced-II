@@ -3,12 +3,6 @@
 
 This repository is used to store the files for HackMerced's core website. Feel free to use it as long as you comply with our license.
 
-## Why Optica? ##
-
-We love the node registration features of [chef server](https://docs.chef.io/server_components.html).
-However, we run chef-solo here at [Airbnb](www.airbnb.com).
-We use optica as alternate node registration system.
-
 ## Installation ##
 
 HackMerced's website runs on top of node.js and requires you to install `node.js`, `npm`, `grunt`;
@@ -43,4 +37,4 @@ To run the program for production, enter the following:
 $ node production.js
 ```
 
-Access the website by going to `http://localhost:4220` 
+Access the website by going to `http://localhost:4220`
