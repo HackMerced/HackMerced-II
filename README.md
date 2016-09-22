@@ -1,6 +1,7 @@
 # HackMerced Website
 [Live Site](//hackmerced.com)
-https://codeclimate.com/github/HackMerced/website/badges">https://codeclimate.com/github/HackMerced/website/badges 
+
+[![Code Climate](https://codeclimate.com/github/HackMerced/website/badges/gpa.svg)](https://codeclimate.com/github/HackMerced/website)
 
 This repository is used to store the files for HackMerced's core website. Feel free to use it as long as you comply with our license.
 
