@@ -1,0 +1,188 @@
+// all changes when doing mobile
+
+.mobicon{
+  display: none;
+  margin: 0px 0px 2px;
+  font-size: 20px;
+}
+
+@media screen and (max-width:660px) {
+
+
+  header nav.isLeft{
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    left: 0px;
+    width: 100%;
+    top: auto;
+    display: flex !important;
+    height: 62px;
+    z-index: 999;
+
+
+    justify-content:space-around;
+
+    .mobicon{
+      display: block;
+    }
+
+    a {
+      text-align: center;
+      color: $black;
+      padding: 14px 0px;
+      width: 25%;
+      font-size: 12px;
+      margin-right: 0px;
+    }
+
+  }
+
+  body.dark header nav a{
+    color: $black;
+  }
+
+  .sponsor-primaryCTA .CTA{
+    width: 100%;
+  }
+
+  .sponsor-connectTotheBestHackers{
+    padding: 0px 20px;
+  }
+
+  .center.sponsor-cta-block {
+    margin-bottom: 60px;
+  }
+
+  section.isFull > .content {
+    padding: 20px 20px;
+  }
+
+  .index-HackForTheFuture {
+
+    > div{
+      padding-top: 127px;
+    }
+  }
+
+  .center.notext:not(.media-padded){
+    padding: 0px;
+  }
+  .center{
+    padding: 0px 20px;
+  }
+
+  .index-HackMercedinPics{
+    font-size: 46px;
+  }
+  h3{
+    font-size: 18px;
+  }
+
+
+  container.notext{
+    h4{
+      font-size: 24px;
+    }
+    h1{
+      font-size: 48px;
+    }
+  }
+
+
+  label{
+    font-size: 14px;
+  }
+
+  input{
+    font-size:16px;
+    line-height: 48px;
+    padding: 0px 18px;
+  }
+
+  .gu-content input[type='submit'] {
+    margin-top: 18px;
+    width: 150px;
+    font-size: 14px;
+    padding: 0px;
+    height:50px;
+    line-height: 50px;
+    height: auto;
+  }
+  p{
+    margin: 15px 0px;
+  }
+    h1{
+      font-size: 28px;
+          margin: 10px 0px;
+    }
+
+    h4{
+          font-size: 18px;
+    }
+
+  .gu-content form{
+        margin-top: 20px;
+  }
+
+  .index-il-image1{
+    width: 100%;
+  }
+
+  .index-il-image1::after{
+    display: none;
+  }
+  .index-il-image2{
+    display: none;
+  }
+
+  .gu-content{
+    margin: 0px 0px;
+    padding: 40px 0px;
+  }
+
+  .gu-exit{
+    bottom:27px;
+    top:auto;
+    position: fixed;
+    right: 27px;
+  }
+
+}
+
+
+// smaller than that
+@media screen and (max-width:610px) {
+  .index-HackForTheFuture {
+    > div{
+      padding-top: 79px;
+    }
+
+  }
+
+}
+
+@media screen and (max-width:540px) {
+
+  h6.infobox{
+    font-size: 17px;
+    margin-left: -20px;
+    width: calc(100% + 50px);
+  }
+  .index-HackMercedinPics{
+    font-size: 38px;
+  }
+  container.notext{
+   h1{
+    font-size: 28px;
+   }
+
+   h4{
+    font-size: 18px;
+   }
+  }
+  .sponsor-wordLearnMore{
+    display: none;
+  }
+
+}
