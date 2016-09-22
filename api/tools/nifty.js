@@ -1,15 +1,13 @@
 'use strict'
 
-var moment = require('moment');
-var async = require('async');
-var crypto = require('crypto');
-var request = require('request');
-var OAuth = require('oauth');
+const crypto = require('crypto');
+const request = require('request');
+const OAuth = require('oauth');
 
 
 function cryptobox(x, y, z){
   return crypto.randomBytes(x).toString('hex') + '_' + crypto.randomBytes(y).toString('hex') + '_' + crypto.randomBytes(z).toString('hex');
-};
+}
 
 const tryParseJSON = function(data) {
   let result = false;
@@ -20,7 +18,7 @@ const tryParseJSON = function(data) {
     // who cares
   }
   return result;
-}
+};
 
 module.exports = {
   tryParseJSON:function(data){
@@ -41,10 +39,21 @@ module.exports = {
   request:function(type, url, method, send, cb, res){
 
 
+    function tryRequest(options, callback){
+      try{
+        request(options, callback);
+      } catch(err){
+        if(res){
+          res('There was an error in parsing, please reformat your data', 400);
+        }
+      }
+    }
+
     function isValidURL(s) {
       var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
       return regexp.test(s);
      }
+
 
     if(isValidURL(url)){
       if(type === 'http' || type === 'oauthv2' || type === 'refresh_token' || type === 'basicauth'){
@@ -58,9 +67,9 @@ module.exports = {
 
           var options = {
               url: url,
-              method: (method) ? method.toUpperCase() : "GET",
+              method: ((method) ? method.toUpperCase() : "GET"),
               headers: send.headers || {},
-              timeout:20000
+              timeout:20000,
           };
 
           if(send.body){
@@ -80,25 +89,14 @@ module.exports = {
             options.headers["Authorization"] = "Basic " + hash;
           }
 
-          function tryRequest(options, callback){
-            try{
-              request(options, callback);
-            } catch(err){
-              if(res){
-                res('There was an error in parsing, please reformat your data', 400);
-              }
-            }
-          }
 
           function callback(error, response, body) {
               //var response_size = (response && response.client && response.client.bytesRead) ? response.client.bytesRead : 0 ;
 
               if(response){
-                if (!error && response.statusCode.toString()[0] == "2") {
+                if (!error && response.statusCode.toString()[0] === "2") {
 
                   var info = (typeof body === "object") ? body : tryParseJSON(body) ;
-
-
 
                   cb(info, response.statusCode);
                 } else {
@@ -184,8 +182,6 @@ module.exports = {
 
                         cb(info);
                       } else {
-
-
                           res(e, body, res);
 
                       };

@@ -1,10 +1,9 @@
-const request = require('request');
 const nifty = require('../../api/tools/nifty.js');
 
-module.exports = function(app, keys) {
+module.exports = function handlers(app, keys) {
 
 
-  //TODO: move tryParse to it's own module
+  // TODO: move tryParse to it's own module
 
 
 
@@ -18,30 +17,30 @@ module.exports = function(app, keys) {
       const send = {
               headers :{
                 "Authorization":"Bearer " + keys.sendgrid.secret,
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
               },
               body:{
                   "personalizations": [
                     {
                       "to": [
                         {
-                          "email": "sponsor@hackmerced.com"
-                        }
+                          "email": "sponsor@hackmerced.com",
+                        },
                       ],
-                      "subject": "HackMerced Sponsorship!"
-                    }
+                      "subject": "HackMerced Sponsorship!",
+                    },
                   ],
                   "from": {
-                    "email": body.email
+                    "email": body.email,
                   },
                   "content": [
                     {
                       "type": "text/plain",
-                      "value": body.message
-                    }
-                  ]
-                }
-            }
+                      "value": body.message,
+                    },
+                  ],
+                },
+            };
 
 
       nifty.request("http", url, "POST", send,
@@ -59,9 +58,9 @@ module.exports = function(app, keys) {
       }
     }
 
-  };
+  }
 
   app.post('/sponsor/email', function(req, res){
     sendEmailForSponsor(req, res);
   });
-}
+};
