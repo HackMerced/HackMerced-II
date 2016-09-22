@@ -75,19 +75,7 @@
   .index-HackMercedinPics{
     font-size: 46px;
   }
-  h3{
-    font-size: 18px;
-  }
 
-
-  container.notext{
-    h4{
-      font-size: 24px;
-    }
-    h1{
-      font-size: 48px;
-    }
-  }
 
 
   label{
@@ -119,6 +107,17 @@
 
     h4{
           font-size: 18px;
+    }
+
+
+
+    container.notext{
+      h4{
+        font-size: 24px;
+      }
+      h1{
+        font-size: 48px;
+      }
     }
 
   .gu-content form{
@@ -168,6 +167,8 @@
     font-size: 17px;
     margin-left: -20px;
     width: calc(100% + 50px);
+    padding: 25px 20px 20px;
+    line-height: 1;
   }
   .index-HackMercedinPics{
     font-size: 38px;
