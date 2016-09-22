@@ -256,25 +256,37 @@ function loadingAnimations(resolve){
         opacity:1
       }, 500);
 
-      $("container section").each(function(){
-        var delay = (timeDelay*150 + 0);
-        var that = this;
+      console.log($(window).scrollTop())
+      if($(window).scrollTop() < ($(window).height() + 1)) {
+        $("container section").each(function(){
+          var delay = (timeDelay*150 + 0);
+          var that = this;
 
-        $(that).css("margin-top", "50px");
+          $(that).css("margin-top", "50px");
 
-        setTimeout(function(){
+          setTimeout(function(){
 
-          $(that, ", footer").animate({
-            opacity:1,
-            "margin-top":0
-          }, 500, function(){
+            $(that, ", footer").animate({
+              opacity:1,
+              "margin-top":0
+            }, 500, function(){
 
-          });
-        }, delay)
+            });
+          }, delay)
 
 
-        timeDelay++;
-      });
+          timeDelay++;
+        });
+      } else {
+        // user isnt at the top of the page
+        $("container section, footer").animate({
+          opacity:1,
+          "margin-top":0
+        }, 500, function(){
+
+        });
+      }
+
 
       resolve();
 
