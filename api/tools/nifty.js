@@ -24,18 +24,6 @@ module.exports = {
   tryParseJSON:function(data){
     return tryParseJSON(data);
   },
-  encrypt:function encrypt_data(text){
-    var cipher = crypto.createCipher('aes-256-cbc','d6F3Efeq')
-    var crypted = cipher.update(text,'utf8','hex')
-    crypted += cipher.final('hex');
-    return crypted;
-  },
-  decrypt: function decrypt_data(text){
-    var decipher = crypto.createDecipher('aes-256-cbc','d6F3Efeq')
-    var dec = decipher.update(text,'hex','utf8')
-    dec += decipher.final('utf8');
-    return dec;
-  },
   request:function(type, url, method, send, cb, res){
 
 

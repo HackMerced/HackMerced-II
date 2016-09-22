@@ -3,6 +3,8 @@ engines:
     enabled: false
     config:
       config: tests/linters/.eslintrc
+    exclude_fingerprints:
+    - 1f55a8932e903647c9912f66ad2ce34f.
   csslint:
     enabled: true
   duplication:
