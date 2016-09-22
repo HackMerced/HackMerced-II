@@ -171,7 +171,8 @@ function loadPage(page){
 
           loadingAnimations(function(){
             load = false;
-
+            // scroll to top of page
+            $(window).scrollTo(0);
 
             if(page && runPage[page]){
               runPage[page]();

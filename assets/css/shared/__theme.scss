@@ -301,8 +301,11 @@ p {
 }
 
 .loader-o-content{
-    margin: 300px 0px 0px;
-    text-align: center;
+  margin-top: -63px;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+  position: absolute;
 }
 
 .loader-o-loader{
