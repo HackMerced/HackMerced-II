@@ -5,7 +5,7 @@ var catchphrases = [
   "Just add Node.js",
   "SELECT * FROM hacks",
   "Reticulating Splines",
-  "#harambe"
+  "#harambe",
 ]
 
 
@@ -168,20 +168,22 @@ function loadPage(page){
           $("body").attr("data-page", page);
           $("content").html(results);
 
+          pageRenderOperations(page, function(){
+            loadingAnimations(function(){
+              load = false;
+              // scroll to top of page
+              $(window).scrollTo(0);
 
-          loadingAnimations(function(){
-            load = false;
-            // scroll to top of page
-            $(window).scrollTo(0);
+              if(page && runPage[page]){
+                runPage[page]();
+              } else {
+                runPage["default"]();
+              }
 
-            if(page && runPage[page]){
-              runPage[page]();
-            } else {
-              runPage["default"]();
-            }
+              $("preload").data("loaded", false);
+            });
+          })
 
-            $("preload").data("loaded", false);
-          });
 
         },
         error: function(results){

@@ -58,12 +58,7 @@
     padding: 20px 20px;
   }
 
-  .index-HackForTheFuture {
 
-    > div{
-      padding-top: 127px;
-    }
-  }
 
   .center.notext:not(.media-padded){
     padding: 0px;
@@ -150,18 +145,12 @@
 }
 
 
-// smaller than that
-@media screen and (max-width:610px) {
-  .index-HackForTheFuture {
-    > div{
-      padding-top: 79px;
-    }
-
-  }
-
-}
 
 @media screen and (max-width:540px) {
+  h5, button, input[type='submit'], .sponsor-primaryCTA .CTA{
+    font-size: 16px;
+  }
+
 
   h6.infobox{
     font-size: 17px;
