@@ -24,6 +24,20 @@ function leaveSponsor(resolve){
 }
 
 
+// scrollto options
+
+$(document).on("click", "#learnMoreAboutSponsorships", function(e){
+  $(window).scrollTo(".sponsor-main-block", 500);
+
+});
+
+$(document).on("click", "#contactUs", function(e){
+  $(window).scrollTo(".sponsor-Contact", 500);
+
+  quickAnimateItems();
+});
+
+
 // send the message to sponsor@hackmerced.com from whoever
 $(document).on("click", ".sponsor-submit-button", function(e){
 

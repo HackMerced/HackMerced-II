@@ -256,7 +256,6 @@ function loadingAnimations(resolve){
         opacity:1
       }, 500);
 
-      console.log($(window).scrollTop())
       if($(window).scrollTop() < ($(window).height() + 1)) {
         $("container section").each(function(){
           var delay = (timeDelay*150 + 0);
@@ -279,12 +278,7 @@ function loadingAnimations(resolve){
         });
       } else {
         // user isnt at the top of the page
-        $("container section, footer").animate({
-          opacity:1,
-          "margin-top":0
-        }, 500, function(){
-
-        });
+        quickAnimateItems();
       }
 
 
@@ -292,4 +286,13 @@ function loadingAnimations(resolve){
 
     });
   }, 500)
+}
+
+function quickAnimateItems(){
+  $("container section, footer").animate({
+    opacity:1,
+    "margin-top":0
+  }, 500, function(){
+
+  });
 }
