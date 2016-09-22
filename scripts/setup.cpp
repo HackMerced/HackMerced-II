@@ -14,7 +14,7 @@ int main(){
 
   // start file
   ofstream file;
-  file.open ("./assets/keys/keys.js");
+  file.open ("assets/keys/keys.js");
 
   if(file.good()){
     //TODO: allow access to a keyserver and retrieve specific keys that way instead of this manual way
