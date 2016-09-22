@@ -29,10 +29,11 @@ $(document).on("click", ".sponsor-submit-button", function(e){
 
   const $button = $(this);
   const $sendContainer =  $(".sponsor-SendMessage");
+  const $contactBlock = $(".sponsor-Contact");
 
   // get info from html
   const send = {
-    send:$("#sponsor-YourEmail").val(),
+    email:$("#sponsor-YourEmail").val(),
     message:$("#sponsor-YourEmail").val()
   };
 
@@ -41,13 +42,16 @@ $(document).on("click", ".sponsor-submit-button", function(e){
   $.ajax({
       url: "/sponsor/email",
       type: "POST",
-      data: send,
+      data: {send:JSON.stringify(send)},
       success: function(results){
+        $contactBlock.find("h3").text("Thanks for the message!");
+        $contactBlock.find("text").text("We just received your message and will be in contact with you within 12 hours!");
         $sendContainer.fadeOut();
+        $sendContainer.remove(); // prevents accidental send-spam
       },
       error:function(error){
         $button.addClass("red");
-        $button.text(error.statusText);
+        $button.text(error.responseText);
       },
     });
 

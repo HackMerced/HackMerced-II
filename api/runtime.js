@@ -50,6 +50,7 @@ module.exports = function(status){
 
     // routes to pages
   require('./routes/pages.js')(app, keys);
+  require('./routes/handlers.js')(app, keys);
 
 
 
