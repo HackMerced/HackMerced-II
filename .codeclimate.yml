@@ -1,6 +1,8 @@
 engines:
   eslint:
     enabled: true
+    config:
+      config: test/linters/.eslintrc
   csslint:
     enabled: true
   duplication:
