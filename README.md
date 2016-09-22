@@ -11,8 +11,10 @@ Once you've installed the prerequistes you will need to run the following comman
 
 ```bash
 $ npm install
-$ ./setup
+$ ./setup (MacOSx, This needs to be converted into a node-binary instead of a C binary)
 ```
+
+If you're on windows or linux, please compile setup in `scripts`
 
 To setup the program for development environment run grunt normally:
 
