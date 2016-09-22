@@ -6,7 +6,8 @@ $background-color: #fff;
 $desktop-width: 1200px;
 
 // define fonts
-$additional-fonts: Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$additional-fonts: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+// Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $league-font: "League Spartan";
 $roboto-font: "Roboto";
 
@@ -15,7 +16,7 @@ $header-font: $league-font, $additional-fonts;
 $header-color-default: #333333;
 
 // body settings
-$body-font: $roboto-font, $additional-fonts;
+$body-font: $additional-fonts;
 $body-font-size: 16px;
 $body-color-default: #333333;
 $body-line-height: 1.8;
