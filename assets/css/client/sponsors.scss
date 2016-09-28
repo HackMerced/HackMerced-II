@@ -91,7 +91,7 @@ $sponsor-border-config: 1px solid #DCDCDC;
 }
 
 .sponsor-rotate-image{
-  padding:0px 20px 10px;
+  padding: 20px 20px 67px;
 
 
   img{
@@ -109,20 +109,36 @@ $sponsor-border-config: 1px solid #DCDCDC;
 
 // set the size of images{
 .sponsor-StudentParticipants{
-  .sponsor-rotate-image:nth-child(2) img{
+  .sponsor-rotate-image:nth-child(2) {
     height: 92px;
+
+    img{
+      height: 92px;
+    }
   }
 
-  .sponsor-rotate-image:nth-child(3) img{
+  .sponsor-rotate-image:nth-child(3) {
     height: 45px;
+
+    img{
+      height: 45px;
+    }
   }
 
-  .sponsor-rotate-image:nth-child(4) img{
+  .sponsor-rotate-image:nth-child(4) {
     height: 90px;
+
+    img{
+      height: 90px;
+    }
   }
 
-  .sponsor-rotate-image:nth-child(5) img{
+  .sponsor-rotate-image:nth-child(5) {
     height: 200px;
+
+    img{
+      height: 200px;
+    }
   }
 
   img{
