@@ -1,6 +1,9 @@
 include assets/head
 
 block content
+  div(style='display:none; left:-1000px; top:-1000px position:fixed;'
+      data-anonymous= user.anonymous
+      data-session= user.session)
   include assets/header
 
   preload(data-service='client')

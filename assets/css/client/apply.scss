@@ -58,16 +58,22 @@ form.apply-form{
     font-size: 16px;
     color: #767676;
     letter-spacing: 0;
+    margin-bottom: 12px;
   }
 
   input{
     line-height: 2;
-    padding: 10px 20px;
+    padding: 0px 20px;
     background: #FFFFFF;
     font-size: 16px;
     width: 500px;
+    height: 65px;
     border: 1px solid #DCDCDC;
     border-radius: 2px;
+
+    &.small{
+      width: 100px;
+    }
   }
 
 
@@ -82,7 +88,152 @@ form.apply-form{
     box-sizing: border-box;
   }
 
-  .apply-item{
-    margin: 40px 0px;
+  .apply-btn-bottom{
+    margin-top: 40px;
   }
+
+  .apply-item{
+    margin: 50px 0px;
+
+    &.hidden{
+      display: none;
+    }
+  }
+
+  .new-user-mod{
+    display: block;
+  }
+
+  .old-user-mod{
+    display: none;
+  }
+
+  .old-user{
+    .old-user-mod{
+      display: block;
+    }
+    .new-user-mod{
+      display: none;
+    }
+  }
+  .apply-sub-description{
+    font-size: 14px;
+    color: #767676;
+    letter-spacing: 0;
+    margin-left: 25px;
+  }
+
+
 }
+
+
+
+  .apply-options{
+    display: flex;
+
+    &.inItem{
+      margin: 25px 0px;
+
+    }
+  }
+
+  .apply-option{
+    transition: all 500ms ease-out;
+
+    width: 200px;
+    margin-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #B8B8B8;
+    position: relative;
+    height: 65px;
+
+
+
+    &:not(.big){
+      text-align: center;
+      line-height: 65px;
+
+      &.selected{
+        background-color: $darkblue;
+        border: 2px solid $darkblue;
+
+        color:#fff;
+      }
+
+      &:hover{
+        border: 2px solid $darkblue;
+      }
+    }
+
+
+
+    &.big{
+      width: 300px;
+
+
+
+      .apply-option-b-text{
+        line-height: 1;
+        position: absolute;
+        top: 15px;
+        left: 75px;
+      }
+
+      .apply-option-b-dot{
+        width: 25px;
+        height: 25px;
+        left: 25px;
+        border: 2px solid #B8B8B8;
+        border-radius: 100%;
+        position: absolute;
+        top: 20px;
+        box-sizing: border-box;
+      }
+
+      .apply-option-b-dot::after{
+        transform: scale(0);
+        transition: all 500ms ease-out;
+        background-color: #8A8A8A;
+        content: "";
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        border-radius: 100%;
+        left: -2px;
+        top: -2px;
+      }
+
+      .apply-option-b-h{
+          font-weight: 500;
+          font-size: 18px;
+          color: #272C51;
+          margin-bottom: 4px;
+      }
+
+      .apply-option-b-s{
+        font-weight: 500;
+        font-size: 12px;
+        color: #8A8A8A;
+      }
+
+      &.selected{
+        border: 2px solid $darkblue;
+
+        .apply-option-b-dot::after{
+          background-color: $darkblue;
+          transform: scale(1);
+        }
+      }
+
+      &:hover{
+        .apply-option-b-dot::after{
+          background-color: $darkblue;
+          transform: scale(1);
+        }
+      }
+    }
+
+
+
+  }

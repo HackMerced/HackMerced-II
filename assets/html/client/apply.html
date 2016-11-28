@@ -14,7 +14,7 @@
           Keeping you in the loop!
           <div class='apply-completecount'><span>0%</span> Complete</div>
         </div>
-        <div class='apply-time-section' id='apply-Getting'>
+        <div class='apply-time-section' id='apply-GettingToKnowYou'>
           Getting to know you.
           <div class='apply-completecount'><span>0%</span> Complete</div>
         </div>
@@ -31,20 +31,64 @@
         <div class='apply-section-KeepingLoop'>
           <div class='apply-section'>
             <div class='apply-item'>
+              <div class='apply-options '>
+                <div class='apply-option big selected option-signThemUp'>
+                  <div class='apply-option-b-dot'></div>
+                  <div class='apply-option-b-text'>
+                    <div class='apply-option-b-h'>I have not yet applied</div>
+                    <div class='apply-option-b-s'>Sign me up for a new account!</div>
+                  </div>
+                </div>
+
+                <div class='apply-option big option-logThemIn'>
+                  <div class='apply-option-b-dot'></div>
+                  <div class='apply-option-b-text'>
+                    <div class='apply-option-b-h'>I have already applied</div>
+                    <div class='apply-option-b-s'>Log me back in!</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='apply-item' id='applyEmail'>
               <label>Give us your email!</label>
-              <description>We’ll sign you up within our system first, so we can get you can resume your application anytime!</description>
-              <input placeholder='email' type='email'>
+              <div class='new-user-mod apply-description'>We’ll sign you up within our system first, so we can get you can resume your application anytime!</div>
+              <div class='old-user-mod apply-description'>Give us the email you signed up with and we'll restore all your information.</div>
+              <input placeholder='Email Address' type='email'>
             </div>
-            <div class='apply-item'>
+            <div class='apply-item' id='applyPassword'>
               <label>Password up!</label>
-              <div class='apply-description'>Give us a smart password to keep your account safe from prying-eyes.</div>
-              <input placeholder='password' type='password'>
+              <div class='new-user-mod apply-description'>Give us a smart password to keep your account safe from prying-eyes.</div>
+              <div class='old-user-mod apply-description'>Write down the password you set last time you were here!</div>
+              <input placeholder='Password' type='password'>
             </div>
-            <div class='apply-item'>
+            <div class='apply-item new-user-mod' id='applyConfirmPassword'>
               <label>Confirm your Password.</label>
-              <input placeholder='password' type='password'>
+              <div class='apply-description'>Studies say that writing your password twice prevents mistyping the original password!</div>
+              <input placeholder='Confirm Password' type='password'>
             </div>
-            <button>Start my application!</button>
+            <button class='start-my-app apply-btn-bottom'>Start my application!</button>
+          </div>
+        </div>
+        <div class='apply-section-GettingToKnowYou'>
+          <div class='apply-item' id='applyAge'>
+            <label>Where are you from?</label>
+            <div class='apply-description'>We want to better understand our hackers, just enter in your city name and let google autocomplete fill out the rest.</div>
+            <input placeholder='San Jose, California' class='small' type='address'>
+          </div>
+          <div class='apply-item' id='applyAge'>
+            <label>My age is:</label>
+            <div class='apply-description'>We accept all individuals aged 18+, if you are under the age of 18, please contact us for special arrangement.</div>
+            <input placeholder='18' class='small' type='number'>
+          </div>
+          <div class='apply-item' id='applyEducation'>
+            <label>I am a:</label>
+            <div class='apply-description'>We accept high schoolers, undergrad, graduate university students as well as college-aged hackers!</div>
+            <div class='apply-options'>
+              <div class='apply-option ifHighSchool' data-type='High School'>High Schooler</div>
+              <div class='apply-option ifCollege' data-type='Undergrad'>Undergrad Student</div>
+              <div class='apply-option ifCollege' data-type='Graduate'>Graduate Student</div>
+              <div class='apply-option' data-type='College Aged'>College-Aged Person</div>
+            </div>
           </div>
         </div>
       </form>
