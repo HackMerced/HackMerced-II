@@ -18,3 +18,19 @@ function launchIndex(){
     }, 500)
   });
 }
+
+function launchApplyField(noanimation){
+  if(noanimation){
+    launchApplyData();
+  } else {
+    launchApplyData();
+  }
+}
+
+function launchApplyData(){
+
+}
+
+$(document).on("click", ".applyNow", function(){
+  launchApplyField(false);
+});

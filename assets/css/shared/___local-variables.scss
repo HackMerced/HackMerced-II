@@ -37,11 +37,19 @@ $white: #fff; // don't change
 
 // typing colors
 $font-grey: #8C8C8C;
+$gray: #999999;
+$grey: $gray;
 
 @mixin useLeague(){
   font-family: $footer-font;
   font-weight: bold;
 }
+
+@mixin useNormal(){
+  font-family: $body-font;
+  font-weight: inherit;
+}
+
 
 @mixin makeObjectYellow(){
   color:$black;
