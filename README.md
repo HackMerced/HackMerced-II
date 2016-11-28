@@ -32,12 +32,12 @@ $ grunt production
 ## Running the Program ##
 To run the program for development, enter the following:
 ```bash
-$ node development.js
+$ npm run dev
 ```
 
 To run the program for production, enter the following:
 ```bash
-$ node production.js
+$ npm start
 ```
 
 Access the website by going to `http://localhost:4220`
