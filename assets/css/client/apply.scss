@@ -1,0 +1,88 @@
+.apply-holder{
+  display: block;
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  z-index: 5;
+  height: 1000px;
+}
+
+.apply-time-sections{
+  background: #F7F7F7;
+
+  border-radius: 5px;
+  display: flex;
+  margin: 50px 0px;
+}
+
+
+.apply-completecount{
+  font-size: 12px;
+  color: #979797;
+}
+
+.apply-time-section{
+  text-align: center;
+  width: 25%;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #999999;
+  cursor: pointer;
+
+  &.selected{
+    color:$darkblue;
+  }
+}
+
+.apply-time-section:hover:not(.selected){
+  transition: color 500ms ease-in;
+  color: $blue;
+}
+
+.apply-form{
+  display: block;
+  position: relative;
+}
+
+form.apply-form{
+  label{
+      /* Give us your email!: */
+    font-weight: 600;
+    font-size: 18px;
+    color: #232648;
+    margin: 0px;
+    letter-spacing: 0;
+  }
+
+  .apply-description{
+    font-size: 16px;
+    color: #767676;
+    letter-spacing: 0;
+  }
+
+  input{
+    line-height: 2;
+    padding: 10px 20px;
+    background: #FFFFFF;
+    font-size: 16px;
+    width: 500px;
+    border: 1px solid #DCDCDC;
+    border-radius: 2px;
+  }
+
+
+  button{
+    @include makeObjectDarkBlue();
+    @include useNormal();
+
+    font-weight: 400;
+    font-size: 18px;
+
+    padding: 20px 40px;
+    box-sizing: border-box;
+  }
+
+  .apply-item{
+    margin: 40px 0px;
+  }
+}
