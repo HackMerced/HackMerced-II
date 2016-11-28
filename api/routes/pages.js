@@ -6,7 +6,7 @@ module.exports = function(app, keys) {
   app.get('/:site', function(req, res){
       let current_user = new user(req);
       if(current_user){
-        res.render('client/index', {status:keys.status, user:current_user});
+        res.render('client/index', {status:keys.status, user:current_user, keys:{ google_maps_javascript_key: keys.google_maps_javascript_key}});
       }
   });
 

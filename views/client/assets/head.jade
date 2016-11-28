@@ -6,6 +6,7 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="shortcut icon" type="image/png" href="/img/hackathon_brand/favicon.png")
         title= title || 'Hack for the Future | HackMerced'
+        script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=" + keys.google_maps_javascript_key + "&libraries=places")
         -if(status === 'development'){
           script(src='/js/client.js', type='text/javascript')
           link(href='/css/client.css', rel='stylesheet', type='text/css')
