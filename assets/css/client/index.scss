@@ -184,3 +184,44 @@
 .image-shareImages .transparent-content{
   margin-top: 50px;
 }
+
+.seeFuture{
+  background-image: url(https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/12_full.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 500px;
+
+  .content{
+    background: rgba(0,0,0,.3);
+  }
+
+  > .content{
+    padding: 90px 60px !important;
+  }
+
+}
+
+
+.index-fosterInnovation {
+
+  h4{
+    margin-top: 21px;
+  }
+  button{
+    padding: 20px;
+    border-radius: 2px;
+    font-size: 16px;
+
+  }
+
+  p{
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .isCentered{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
