@@ -1,8 +1,17 @@
+<img src="/assets/images/logos/logo_blue.png" alt="Tomoe" width=250 >
 # HackMerced Website
 [![Code Climate](https://codeclimate.com/github/HackMerced/website/badges/gpa.svg)](https://codeclimate.com/github/HackMerced/website)
-[Live Site](//hackmerced.com)
+
+# HackMerced Website
 
 This repository is used to store the files for HackMerced's core website. Feel free to use it as long as you comply with our license.
+
+[Website](http://tomoe.hackmerced.com) |
+[Docs](http://tomoe.hackmerced.com/docs) |
+[Installation](http://tomoe.hackmerced.com/install) |
+[HackMerced](http://hackmerced.com) |
+[Sponsor Us!](http://hackmerced.com/sponsor) |
+[Blog](https://blog.hackmerced.com/)
 
 ## Installation ##
 
