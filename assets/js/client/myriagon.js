@@ -14,17 +14,62 @@ class myriagon{
     this.input.oninput = function(){
       that.showAutocomplete(input.value)
     }
+
+    this.offClick();
+
+
+  }
+
+  offClick(){
+    let that = this;
+
+    // if use clicks away
+    document.addEventListener("click", function (e) {
+      let level = 0;
+      for (let el = e.target; el; el = el.parentNode) {
+        if (el.id === 'x') {
+          return;
+        }
+        level++;
+      }
+      that.hide();
+    });
+  }
+
+  hide(){
+    // hides the container
+
+    if(this.container){
+      this.container.setAttribute("style", "display:none");
+    }
+  }
+
+  show(){
+    // shows the container and aligns it
+
+    let bounding = this.input.getBoundingClientRect();
+    let offset = {
+      top: (bounding.top - document.body.getBoundingClientRect().top) + this.input.offsetHeight,
+      left: bounding.left,
+      width: this.input.offsetWidth,
+    }
+
+    if(this.container){
+      this.container.setAttribute("style", `width:${offset.width}px;left:${offset.left}px;top:${offset.top}px;position:absolute;display:block`);
+    }
   }
 
   showAutocomplete(value){
     let that = this;
-    
+
     if(value){
       if(!document.getElementById(this.myr_id)){
         this.generateContainer();
       }
 
-      this.container.setAttribute("display", "block");
+
+
+      this.show();
 
       // clear data
       this.container.innerHTML = "";
@@ -60,8 +105,6 @@ class myriagon{
             }
 
 
-
-
             let myr_item = document.createElement("div");
                 myr_item.setAttribute("class", "myr-item");
                 myr_item.innerHTML = "<span class='myr-item-query'>" +
@@ -78,24 +121,17 @@ class myriagon{
         }
       }
     } else {
-      this.container.setAttribute("display", "none");
+      this.hide();
     }
 
   }
 
   generateContainer(){
-    let bounding = this.input.getBoundingClientRect();
-    let offset = {
-      top: (bounding.top - document.body.getBoundingClientRect().top) + this.input.offsetHeight,
-      left: bounding.left,
-      width: this.input.offsetWidth,
-    }
+
 
     let html = document.createElement("div");
         html.setAttribute("id", this.myr_id);
         html.setAttribute("class", "myr-container");
-
-        html.setAttribute("style", `width:${offset.width}px;left:${offset.left}px;top:${offset.top}px;position:absolute;display:block`);
 
     this.container = html;
     document.body.appendChild(html);
