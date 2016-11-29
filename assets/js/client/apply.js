@@ -1,4 +1,7 @@
 
+function loadCollegesAutocomplete(){
+  let collegePicker = new myriagon("/files/universities.csv", "applyUniversityMain");
+}
 
 
 
