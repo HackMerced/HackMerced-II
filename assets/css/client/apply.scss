@@ -127,18 +127,6 @@ form.apply-form{
 
     padding: 20px 40px;
     box-sizing: border-box;
-  }
-
-  .apply-btn-bottom{
-    margin-top: 40px;
-  }
-
-  .apply-item{
-    margin: 50px 0px;
-
-    &.hidden{
-      display: none;
-    }
 
     &.fp__btn{
       height: 65px;
@@ -153,6 +141,22 @@ form.apply-form{
       }
     }
   }
+
+  .apply-btn-bottom{
+    margin-top: 40px;
+  }
+
+  .apply-item{
+    margin: 50px 0px;
+
+    &.hidden{
+      display: none;
+    }
+
+
+  }
+
+
 
   .new-user-mod{
     display: block;
