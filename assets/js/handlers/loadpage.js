@@ -205,6 +205,9 @@ var runPage = {
   sponsor:function(){
     launchSponsor();
   },
+  apply:function(){
+    launchApply();
+  },
   default:function(){
   }
 }

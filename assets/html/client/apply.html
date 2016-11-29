@@ -12,19 +12,19 @@
       <div class='apply-time-sections useLeague'>
         <div class='apply-time-section selected' id='apply-KeepingLoop'>
           Keeping you in the loop!
-          <div class='apply-completecount'><span>0%</span> Complete</div>
+          <div class='apply-completecount'>Logged Out</div>
         </div>
         <div class='apply-time-section' id='apply-GettingToKnowYou'>
           Getting to know you.
-          <div class='apply-completecount'><span>0%</span> Complete</div>
+          <div class='apply-completecount'>Not Started</div>
         </div>
-        <div class='apply-time-section' id='apply-WhatMakes'>
-          What makes you, you?
-          <div class='apply-completecount'><span>0%</span> Complete</div>
+        <div class='apply-time-section' id='apply-Reimbursment'>
+          Getting you here!
+          <div class='apply-completecount'>Travel Undecided</div>
         </div>
-        <div class='apply-time-section' id='apply-Logistics'>
-          Logistics~
-          <div class='apply-completecount'><span>0%</span> Complete</div>
+        <div class='apply-time-section' id='apply-Acceptance'>
+          Your Acceptance
+          <div class='apply-completecount'>Finish your application!</div>
         </div>
       </div>
       <form class='apply-form'>
@@ -70,14 +70,14 @@
           </div>
         </div>
         <div class='apply-section-GettingToKnowYou'>
-          <div class='apply-item' id='applyAge'>
+          <div class='apply-item' id='applyLocation'>
             <label>Where are you from?</label>
-            <div class='apply-description'>We want to better understand our hackers, just enter in your city name and let google autocomplete fill out the rest.</div>
-            <input placeholder='San Jose, California' class='small' type='address'>
+            <div class='apply-description'>We want to better understand our hackers, just enter in your city name and click on the autocomplete options provided.</div>
+            <input id="applyLocationMain" placeholder='San Jose, California' type='address'>
           </div>
           <div class='apply-item' id='applyAge'>
             <label>My age is:</label>
-            <div class='apply-description'>We accept all individuals aged 18+, if you are under the age of 18, please contact us for special arrangement.</div>
+            <div class='apply-description'>We accept students of all ages, if you are under the age of 18, we will provide a special consent form for you.</div>
             <input placeholder='18' class='small' type='number'>
           </div>
           <div class='apply-item' id='applyEducation'>
@@ -87,9 +87,76 @@
               <div class='apply-option ifHighSchool' data-type='High School'>High Schooler</div>
               <div class='apply-option ifCollege' data-type='Undergrad'>Undergrad Student</div>
               <div class='apply-option ifCollege' data-type='Graduate'>Graduate Student</div>
-              <div class='apply-option' data-type='College Aged'>College-Aged Person</div>
+              <div class='apply-option ifLoneWolf' data-type='College Aged'>College-Aged Person</div>
             </div>
           </div>
+          <div class='apply-item isCollege' id='applyUniversity'>
+            <label>What university are you from?</label>
+            <div class='apply-description'>More applicants from you university === More reimbursments!</div>
+            <input id="applyLocationMain" placeholder='University of California, Merced' type='address'>
+          </div>
+          <div class='apply-item isCollege' id='applyMajor'>
+            <label>What is your major?</label>
+            <div class='apply-description'>HackMerced is for all students, not just CS majors!</div>
+            <input id="applyLocationMain" placeholder='Art History' type='text'>
+          </div>
+          <div class='apply-item isCollege' id='applyGradYear'>
+            <label>What is your graduation year?</label>
+            <div class='apply-description'>(This helps employers reach out to you)</div>
+            <input id="applyLocationMain" class='small' placeholder='2018' type='year'>
+          </div>
+          <div class='apply-item isHighSchool' id='applyHighSchool'>
+            <label>Which High School do you go to?</label>
+            <div class='apply-description'>Helps us work with High Schools to bring more engineering programs to you!</div>
+            <input id="applyLocationMain" placeholder='Merced High' type='text'>
+          </div>
+          <div class='apply-item isLoneWolf' id='applyFood'>
+            <label>What is your favorite food?</label>
+            <div class='apply-description'>I prefer pizza myself!</div>
+            <input id="applyLocationMain" placeholder='Tacos' type='text'>
+          </div>
+          <div class='apply-item' id='applySex'>
+            <label>I identify as:</label>
+            <div class='apply-description'>HackMerced is an all-inclusive community, we just use this information for statistics!</div>
+            <div class='apply-options'>
+              <div class='apply-option' data-type='Female'>Female</div>
+              <div class='apply-option' data-type='Male'>Male</div>
+              <div class='apply-option' data-type='Non-Binary'>Non-Binary</div>
+              <div class='apply-option' data-type='Undisclosed'>I do not wish to disclose</div>
+            </div>
+          </div>
+          <div class='apply-item' id='applyResume'>
+            <label>Send us your Resume!</label>
+            <div class='apply-description'>This helps recruiters and us better understand you!</div>
+            <input type="filepicker" data-fp-apikey="AyfRnSpVxSfjgiGAHd1C4z" onchange="alert(event.fpfile.url)">
+          </div>
+          <div class='apply-item' id='applyGitHub'>
+            <label>Do you have a GitHub?</label>
+            <div class='apply-description'>Please link us your GitHub!</div>
+            <input placeholder='https://github.com/4shub' type='url'>
+          </div>
+          <div class='apply-item' id='applyDevpost'>
+            <label>How about a Devpost?</label>
+            <div class='apply-description'></div>
+            <input placeholder='https://devpost.com/4shub' type='url'>
+          </div>
+          <div class='apply-item' id='applyDribbble'>
+            <label>A Dribbble?</label>
+            <div class='apply-description'></div>
+            <input placeholder='https://dribbble.com/shubhamnaik' type='url'>
+          </div>
+          <div class='apply-item' id='applyBehance'>
+            <label>Behance..?</label>
+            <div class='apply-description'></div>
+            <input placeholder='https://www.behance.net/forthwall' type='url'>
+          </div>
+          <div class='apply-item' id='applyLinkedIn'>
+            <label>Finally, do you have a LinkedIn?</label>
+            <div class='apply-description'></div>
+            <input placeholder='https://linkedin.com/in/shubhamnaik' type='url'>
+          </div>
+
+
         </div>
       </form>
     </div>

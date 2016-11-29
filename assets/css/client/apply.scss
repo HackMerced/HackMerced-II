@@ -39,6 +39,46 @@
   color: $blue;
 }
 
+.pac-matched{
+  font-weight: 500 !important;
+  background: #F8E81C !important;
+}
+
+.pac-item{
+  font-family: $additional-fonts !important;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 15px 0px;
+  border: 0px;
+
+  font-size: 15px;
+
+  .pac-item-query{
+    font-size: 15px;
+  }
+
+  &:hover{
+  background: #F5F5F5 !important;
+
+  }
+}
+
+
+
+
+.pac-container{
+  border: 0px;
+  margin-top: 17px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 6px rgba(0,0,0,.1);
+}
+
+.pac-logo::after{
+  padding: 10px !important;;
+  border-top: 1px solid #e6e6e6 !important;
+  background-position: center;
+}
+
 .apply-form{
   display: block;
   position: relative;
@@ -73,6 +113,7 @@ form.apply-form{
 
     &.small{
       width: 100px;
+      text-align: center;
     }
   }
 
@@ -97,6 +138,19 @@ form.apply-form{
 
     &.hidden{
       display: none;
+    }
+
+    &.fp__btn{
+      height: 65px;
+      border-radius: 5px;
+      line-height: 65px;
+      padding: 0px;
+      width: 200px;
+      background-position: 15px center;
+
+      &::after{
+        top: 32px;
+      }
     }
   }
 
@@ -236,4 +290,10 @@ form.apply-form{
 
 
 
+  }
+
+
+
+  .isLoneWolf, .isCollege, .isHighSchool{
+    display: none;
   }
