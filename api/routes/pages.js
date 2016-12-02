@@ -1,5 +1,5 @@
 const user = require("../tools/user.js").user;
-
+const request = require("request");
 
 module.exports = function(app, keys) {
   const tomoeuri = keys.tomoe_url;
@@ -67,23 +67,36 @@ module.exports = function(app, keys) {
   });
 
   app.post('/api/login', function(req, res){
-    const options = {
-      method:"GET",
-      uri: tomoeuri + '/1.0/hackers/' + req.body.email + "?password=" + req.body.password + "&verifyLogin=true",
-    }
+    if(req.body.email){
+      if(req.body.password){
+        if(req.body.confirm_password){
+          const options = {
+            method:"GET",
+            uri: tomoeuri + '/1.0/hackers/' + req.body.email + "?password=" + req.body.password + "&verifyLogin=true",
+          }
 
-    request(options, function (error, response, body) {
-      if (!error && response.statusCode == 201 && body && body.hacker) {
-        req.session.user = body.hacker;
+          request(options, function (error, response, body) {
+            if (!error && response.statusCode == 201 && body && body.hacker) {
+              req.session.user = body.hacker;
 
-        res.cookie('user', o.user, { maxAge: 1080000000 });
-        res.cookie('pass', o.pass, { maxAge: 1080000000 });
+              res.cookie('user', o.user, { maxAge: 1080000000 });
+              res.cookie('pass', o.pass, { maxAge: 1080000000 });
 
-        res.status(201).send(body);
+              res.status(201).send(body);
+            } else {
+              res.status(response.statusCode).send(pack);
+            }
+          });
+        } else {
+          res.status(400).send({errorText:"You did not confirm your password", issue:["confirmPassword"]});
+        }
+
       } else {
-        res.status(response.statusCode).send(pack);
+        res.status(400).send({errorText:"You are missing your password", issue:["password"]});
       }
-    });
+    } else {
+      res.status(400).send({errorText:"You are missing your email", issue:["email"]});
+    }
   });
 
   app.post('/api/update', function(req, res){
