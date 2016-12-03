@@ -5,14 +5,7 @@ $(document).on("click", "#mc-embedded-subscribe", function(){
 //  $("header nav.isRight a").text("Thanks for Joining!")
 });
 
-$(document).on("click", ".apply-option", function(){
-  const $this = $(this);
 
-  if(!$this.hasClass("selected")){
-    $(this).parent().find(".selected").removeClass("selected");
-    $(this).addClass("selected");
-  }
-});
 
 $(document).on("click", ".gu-exit", function(){
   $("content, body").css("overflow-y", "auto");

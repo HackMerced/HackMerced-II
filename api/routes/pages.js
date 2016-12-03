@@ -10,6 +10,8 @@ module.exports = function(app, keys) {
     let current_user = new user(req);
     if(current_user){
       res.render('client/index', {status:keys.status, user:current_user, keys:{ google_maps_javascript_key: keys.google_maps_javascript_key.client}});
+    } else {
+      res.send("404");
     }
   }
 
@@ -33,6 +35,23 @@ module.exports = function(app, keys) {
       res.redirect('/apply');
     }
   });
+
+  function updateUser(res, req, error, response, body){
+    if (!error && response.statusCode == 201 && body && body.hacker) {
+      req.session.user = body.hacker;
+
+      res.cookie('username', body.email, { maxAge: 1080000000 });
+      res.cookie('password', body.password, { maxAge: 1080000000 });
+
+      res.status(201).send(body);
+    } else {
+      if(body && body.errors){
+        res.status(response.statusCode).send(body.errors[0]);
+      } else {
+        res.sendStatus(500);
+      }
+    }
+  }
 
   app.post('/api/signup', function(req, res){
 
@@ -70,20 +89,12 @@ module.exports = function(app, keys) {
             password:req.body.password,
             name:"",
             survey:{},
+            status:"started"
           }
         }
 
         request(options, function (error, response, body) {
-          if (!error && response.statusCode == 201 && body && body.hacker) {
-            req.session.user = body.hacker;
-
-            res.cookie('user', o.user, { maxAge: 1080000000 });
-            res.cookie('pass', o.pass, { maxAge: 1080000000 });
-
-            res.status(201).send(body);
-          } else {
-            res.status(response.statusCode).send(body);
-          }
+          updateUser(res, req, error, response, body);
         });
       } else {
         res.status(400).send({text:"Your passwords do not match!", issue:["confirmPassword", "password"]});
@@ -94,33 +105,37 @@ module.exports = function(app, keys) {
   });
 
   app.post('/api/login', function(req, res){
-    if(req.body.email){
-      if(req.body.password){
-          const options = {
-            method:"GET",
-            headers:tomoeauth,
-            uri: tomoeuri + '/1.0/hackers/' + req.body.email + "?password=" + req.body.password + "&verifyLogin=true",
-          }
-
-          request(options, function (error, response, body) {
-            if (!error && response.statusCode == 201 && body && body.hacker) {
-              req.session.user = body.hacker;
-
-              res.cookie('user', o.user, { maxAge: 1080000000 });
-              res.cookie('pass', o.pass, { maxAge: 1080000000 });
-
-              res.status(201).send(body);
-            } else {
-              res.status(response.statusCode).send(pack);
-            }
-          });
-      } else {
-        res.status(400).send({text:"You are missing your password", issue:["password"]});
-      }
-    } else {
-      res.status(400).send({text:"You are missing your email", issue:["email"]});
+    const verify = {
+      body:[
+        {
+          check:["email", "password"],
+          text:"You are missing your email and password!"
+        },
+        {
+          check:["email"],
+          text:"You are missing your email!"
+        },
+        {
+          check:["password"],
+          text:"You are missing your password!"
+        },
+      ]
     }
+
+    reqVerify(req, res, verify, function(){
+        const options = {
+          method:"GET",
+          headers:tomoeauth,
+          uri: tomoeuri + '/1.0/hackers/' + req.body.email + "?password=" + req.body.password + "&verifyLogin=true",
+        }
+
+        request(options, function (error, response, body) {
+          updateUser(res, req, error, response, body);
+        });
+    });
   });
+
+
 
   app.post('/api/update', function(req, res){
     if(req.session.user && req.session.user.email){
@@ -131,11 +146,7 @@ module.exports = function(app, keys) {
       }
 
       request(options, function (error, res, body) {
-        if (!error && res.statusCode == 201 && body && body.hacker) {
-          res.status(201).send(body);
-        } else {
-          res.status(res.statusCode).send(pack);
-        }
+        updateUser(res, req, error, response, body);
       });
     } else {
       res.status(403).send("You are not logged in!");
