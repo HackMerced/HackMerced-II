@@ -33,7 +33,7 @@ function launchApplyData(){
   const userData = $("#userdat").data("session");
 
   if(userData){
-
+    startInnerUser(userData);
   } else {
     // run login
     $(".apply-section-KeepingLoop").css("display", "block");
@@ -68,9 +68,9 @@ $(document).on("click", ".start-my-app", function(e){
       let uri = "/api/login";
 
       let send = {
-        email: $("#applyEmail input").val();
-        password: $("#applyPassword input").val();
-        confirm_password: $("#applyConfirmPassword input").val();
+        email: $("#inputEmail input").val(),
+        password: $("#inputPassword input").val(),
+        confirmPassword: $("#inputConfirmPassword input").val()
       }
 
       if(!$(".apply-section-KeepingLoop").hasClass("old-user")){
@@ -84,27 +84,31 @@ $(document).on("click", ".start-my-app", function(e){
         type: "POST",
         contentType:"application/json",
         dataType:"json",
-        data:send,
-        success: function(results){
-          console.log(results);
-
+        data:JSON.stringify(send),
+        success: function(user){
           lockStartApp = false;
+          startInnerUser(user);
         },
-        error: function(results){
-          // throw error
-          console.log(results);
 
+        error: function(error){
           lockStartApp = false;
-
-          if(results.statusCode === 500){
+          console.log(error);
+          if(error.status === 500 || !error.responseJSON){
             inputError.serverFault();
           } else {
-            inputError.userFault(results);
+            inputError.userFault(error.responseJSON);
           }
         }
     });
   }
 });
+
+function startInnerUser(user){
+  $(".apply-section-KeepingLoop").css("display", "none");
+  $(".apply-section-GettingToKnowYou").fadeIn();
+
+  $("#apply-KeepingLoop .apply-completecount").text("Logged In");
+}
 
 $(document).on("click", ".option-signThemUp", function(){
   let $apply = $(".apply-section-KeepingLoop");
