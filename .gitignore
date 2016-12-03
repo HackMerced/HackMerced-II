@@ -63,3 +63,9 @@ assets/keys/*
 *.o
 *.out
 *.dSYM
+
+#Environment Files
+.env
+
+#Notefiles
+.hackmerced
