@@ -1,15 +1,15 @@
 {
   "name": "HackMeced",
-  "version": "2.0.1",
+  "version": "2.4.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "start": "node index.js live",
-    "dev": "node index.js dev"
+    "start": "node index.js",
+    "env": "node ./utilities/genEnv.js"
   },
-  "author": "DataStack",
-  "license": "ISC",
+  "author": "Shubham Naik",
+  "license": "MIT",
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",
     "chai": "^3.0.0",
@@ -41,6 +41,7 @@
     "cookie-parser": "^1.3.5",
     "cookie-session": "^1.1.0",
     "crypto": "0.0.3",
+    "dotenv": "^2.0.0",
     "express": "^4.13.0",
     "express-session": "^1.11.3",
     "jade": "^1.11.0",
