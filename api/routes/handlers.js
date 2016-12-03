@@ -16,7 +16,7 @@ module.exports = function handlers(app, keys) {
 
       const send = {
               headers :{
-                "Authorization":"Bearer " + keys.sendgrid.secret,
+                "Authorization":"Bearer " + process.env.SENDGRID_SECRET_KEY,
                 "Content-Type": "application/json",
               },
               body:{

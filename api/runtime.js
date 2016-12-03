@@ -31,10 +31,8 @@ module.exports = function(status){
   app.use(session({ secret: 'beta-engine', resave:false, saveUninitialized:false}));
   app.use(methodOverride());
 
-  var keys = require('../assets/keys/keys.js')(status);
-
   // warning
-  if(keys.status === "development"){
+  if(process.env.MODE === "development"){
     console.log(
       `\n******************************************************************
        \n***YOU ARE CURRENTLY RUNNING A DEVELOPMENT VERSION OF HACKMERCED**
@@ -42,17 +40,15 @@ module.exports = function(status){
        \nPlease make sure you are developing right now, and not using this
        \nfor production.
        \n
-       \nTo set up server for production, please use node production.js.
+       \nTo set up server for production, please set your MODE=production.
        \n******************************************************************
        \n`
     );
     }
 
     // routes to pages
-  require('./routes/pages.js')(app, keys);
-  require('./routes/handlers.js')(app, keys);
-
-
+  require('./routes/pages.js')(app);
+  require('./routes/handlers.js')(app);
 
   app.use(express.static(path.join(__dirname, 'public')));
 

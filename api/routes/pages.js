@@ -3,13 +3,13 @@ const reqVerify = require("../tools/utilities.js").reqVerify;
 const request = require("request");
 
 module.exports = function(app, keys) {
-  const tomoeuri = keys.tomoe_url;
-  const tomoeauth = { "Authorization" : "Bearer " + keys.tomoe_auth}
+  const tomoeuri = process.env.TOMOE_WEB_URL;
+  const tomoeauth = { "Authorization" : "Bearer " + process.env.TOMOE_AUTHORIZATION_TOKEN}
 
   function runPage(req, res){
     let current_user = new user(req);
     if(current_user){
-      res.render('client/index', {status:keys.status, user:current_user, keys:{ google_maps_javascript_key: keys.google_maps_javascript_key.client}});
+      res.render('client/index', {status:process.env.MODE, user:current_user, keys:{ google_maps_javascript_key: process.env.GOOGLE_AUTOCOMPLETE_ACCESS_TOKEN}});
     } else {
       res.send("404");
     }
@@ -154,30 +154,4 @@ module.exports = function(app, keys) {
 
   });
 
-
-
-
-  // app.get('/2016', function(req, res){
-  //     res.render('client/index', {status:keys.status});
-  // });
-  //
-  // app.get('/join-our-team', function(req, res){
-  //     res.render('client/index', {status:keys.status});
-  // });
-  //
-  // app.get('/volunteer', function(req, res){
-  //     res.render('client/index', {status:keys.status});
-  // });
-  //
-  // app.get('/contact', function(req, res){
-  //     res.render('client/index', {status:keys.status});
-  // });
-  //
-  // app.get('/sponsor', function(req, res){
-  //     res.render('client/index', {status:keys.status});
-  // });
-  //
-  // app.get('/apply', function(req, res){
-  //     res.render('client/index', {status:keys.status});
-  // });
 };
