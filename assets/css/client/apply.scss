@@ -144,9 +144,18 @@ form.apply-form{
   .apply-btn-bottom{
     margin-top: 40px;
   }
+  .apply-block{
+    background-color: #F7F7F7;
+    max-width: 600px;
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
   .apply-item{
     margin: 50px 0px;
+    max-width: 600px;
+    width: 100%;
 
     &.hidden{
       display: none;
@@ -187,6 +196,8 @@ form.apply-form{
 
   .apply-options{
     display: flex;
+    flex-flow: wrap;
+
 
     &.inItem{
       margin: 25px 0px;
@@ -197,8 +208,8 @@ form.apply-form{
   .apply-option{
     transition: all 500ms ease-out;
 
-    width: 200px;
-    margin-right: 20px;
+    width: calc(50% - 25px);
+    margin: 0px 20px 20px 0px;
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid #B8B8B8;
@@ -295,7 +306,9 @@ form.apply-form{
 
   }
 
-
+  .apply-option-hidden{
+    display:none;
+  }
 
   .isLoneWolf, .isCollege, .isHighSchool{
     display: none;
