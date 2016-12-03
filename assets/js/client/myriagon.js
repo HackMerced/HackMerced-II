@@ -63,6 +63,8 @@ class myriagon{
     let that = this;
 
     if(value){
+      value = value.toLowerCase();
+
       if(!document.getElementById(this.myr_id)){
         this.generateContainer();
       }
