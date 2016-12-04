@@ -43,12 +43,7 @@ function cleanInputErrors(){
 $(document).on("click", ".error-box-x", function(){
   let $this = $(this);
 
-  this.parent().animate({
-    opacity:"0",
-    height:0
-  }, function(){
-    this.parent().remove();
-  }, 1000);
+  $this.parent().remove();
 });
 
 const inputError = {

@@ -23,6 +23,13 @@
   max-width: 1440px;
   width: 100%;
   box-sizing: border-box;
+  left: 50%;
+  margin-left: -720px;
+}
+
+@media screen and (max-width:1439px) {
+  margin-left: 0px;
+  left: 0;
 }
 
 input.errored{
