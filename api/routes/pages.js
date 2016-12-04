@@ -1,15 +1,18 @@
 const user = require("../tools/user.js").user;
 const reqVerify = require("../tools/utilities.js").reqVerify;
 const request = require("request");
+const application = require("../../assets/files/application.js");
+const fs = require("fs");
 
 module.exports = function(app, keys) {
   const tomoeuri = process.env.TOMOE_WEB_URL;
   const tomoeauth = { "Authorization" : "Bearer " + process.env.TOMOE_AUTHORIZATION_TOKEN}
 
+
   function runPage(req, res){
     let current_user = new user(req);
     if(current_user){
-      res.render('client/index', {status:process.env.MODE, user:current_user, keys:{ google_maps_javascript_key: process.env.GOOGLE_AUTOCOMPLETE_ACCESS_TOKEN}});
+      res.render('client/index', {status:process.env.MODE, user:current_user, keys:{ google_maps_javascript_key: process.env.GOOGLE_AUTOCOMPLETE_ACCESS_TOKEN, filestack_api_key:process.env.FILESTACK_API_KEY }});
     } else {
       res.send("404");
     }
@@ -24,6 +27,10 @@ module.exports = function(app, keys) {
   });
 
 
+  app.get('/api/application', function(req, res){
+    res.status(200).send(application);
+  });
+
   app.get('/api/logout', function(req, res){
     if(req.session.user != undefined){
       res.clearCookie('user');
@@ -37,13 +44,14 @@ module.exports = function(app, keys) {
   });
 
   function updateUser(res, req, error, response, body){
-    if (!error && response.statusCode == 201 && body && body.hacker) {
+
+    if (!error && (response.statusCode === 201 || response.statusCode === 200) && body && body.hacker) {
       req.session.user = body.hacker;
 
       res.cookie('username', body.email, { maxAge: 1080000000 });
       res.cookie('password', body.password, { maxAge: 1080000000 });
 
-      res.status(201).send(body);
+      res.status(response.statusCode).send(body);
     } else {
       if(body && body.errors){
         res.status(response.statusCode).send(body.errors[0]);
@@ -100,8 +108,6 @@ module.exports = function(app, keys) {
         res.status(400).send({text:"Your passwords do not match!", issue:["confirmPassword", "password"]});
       }
     });
-
-
   });
 
   app.post('/api/login', function(req, res){
@@ -122,11 +128,14 @@ module.exports = function(app, keys) {
       ]
     }
 
+    let login_auth = tomoeauth["password"] = req.body.password;
+
     reqVerify(req, res, verify, function(){
         const options = {
           method:"GET",
           headers:tomoeauth,
-          uri: tomoeuri + '/1.0/hackers/' + req.body.email + "?password=" + req.body.password + "&verifyLogin=true",
+          json:true,
+          uri: tomoeuri + '/1.0/hackers/' + req.body.email + "?&verifyLogin=true",
         }
 
         request(options, function (error, response, body) {
@@ -142,10 +151,12 @@ module.exports = function(app, keys) {
       const options = {
         method:"POST",
         uri: tomoeuri + '/1.0/hackers/' + req.session.user.email,
+        headers:tomoeauth,
+        json:true,
         body: req.body.hacker
       }
 
-      request(options, function (error, res, body) {
+      request(options, function (error, response, body) {
         updateUser(res, req, error, response, body);
       });
     } else {
