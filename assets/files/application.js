@@ -29,6 +29,19 @@ const application = {
         required:true
       },
       {
+        id:"reimbursment",
+        title:"Will you require a reimbursment to come to Merced?",
+        subtitle:"HackMerced will try to reimburse all students travelling from outside the Merced area for travel to the event!",
+        input:{
+          type:"multiple-choice",
+          fields:[
+            {type:"Yes", value:"Yes"},
+            {type:"No", value:"No"},
+          ]
+        },
+        required:true
+      },
+      {
         id:"age",
         title:"My age is:",
         subtitle:"We accept students of all ages, if you are under the age of 18, we will provide a special consent form for you.",

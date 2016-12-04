@@ -9,7 +9,8 @@ const environment_variables = [
   "google_autocomplete_access_token",
   "tomoe_web_url",
   "tomoe_authorization_token",
-  "filestack_api_key"
+  "filestack_api_key",
+  "mixpanel_api_key"
 ]
 
 class manager{
