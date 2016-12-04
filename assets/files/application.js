@@ -62,7 +62,7 @@ const application = {
           classes:["isCollege"],
         },
         title:"What university are you from?",
-        subtitle:"More applicants from you university === More reimbursments!",
+        subtitle:"More applicants from your university == More reimbursments!",
         input:{
           type:"text",
           attributes:{

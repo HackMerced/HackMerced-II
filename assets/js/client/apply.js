@@ -23,7 +23,8 @@ function launchApply(){
 }
 
 function loadResumeUpload(){
-  const id = "upload-resume";
+  let apikey = $("#userdat").data("filestack");
+  filepicker.setKey(apikey);
 
   $("#upload-resume").click(function(e){
     e.preventDefault();
@@ -32,17 +33,17 @@ function loadResumeUpload(){
     filepicker.pick(
       {
         extensions: [".pdf", ".odt", ".doc", ".txt"],
-        container: 'window',
       },
       function(data){
         $("#upload-resume").text("Update Resume");
         $("#inputResumeMain").val(data.url)
       },
       function(FPError){
-        inputError.serverFault();
+        //inputError.serverFault();
       });
   });
 }
+
 
 
 
