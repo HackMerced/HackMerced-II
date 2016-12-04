@@ -231,19 +231,17 @@ function launchApplyData(){
   const anonData = $("#userdat").data("anonymous");
   const userData = $("#userdat").data("session");
 
-  loadApplication(userData, function(){
-    if(userData){
 
-        startInnerUser(userData);
-
-    } else {
-      // run login
-      $(".apply-section-KeepingLoop").css("display", "block");
-      $("#apply-KeepingLoop").addClass("selected");
-      $("#apply-KeepingLoop .apply-completecount").text("Logged Out");
-    }
-  });
-
+  if(userData){
+    loadApplication(userData, function(){
+      startInnerUser(userData);
+    });
+  } else {
+    // run login
+    $(".apply-section-KeepingLoop").css("display", "block");
+    $("#apply-KeepingLoop").addClass("selected");
+    $("#apply-KeepingLoop .apply-completecount").text("Logged Out");
+  }
 
 }
 
@@ -313,7 +311,12 @@ $(document).on("click", ".start-my-app", function(e){
         data:JSON.stringify(send),
         success: function(user){
           lockStartApp = false;
-          startInnerUser(user);
+          let userData = user.hacker;
+          $("#userdat").data("session", userData);
+          loadApplication(userData, function(){
+            startInnerUser(userData);
+          });
+          checkLogin();
         },
 
         error: function(error){
