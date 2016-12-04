@@ -8,7 +8,8 @@ const environment_variables = [
   "sendgrid_secret_key",
   "google_autocomplete_access_token",
   "tomoe_web_url",
-  "tomoe_authorization_token"
+  "tomoe_authorization_token",
+  "filestack_api_key"
 ]
 
 class manager{
