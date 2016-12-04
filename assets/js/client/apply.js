@@ -22,6 +22,11 @@ function launchApply(){
 
 }
 
+function updatedResume(){
+  $("#upload-resume").text("Update Resume");
+  $("#upload-resume").css("background-color", "#c2c2c2");
+}
+
 function loadResumeUpload(){
   let apikey = $("#userdat").data("filestack");
   filepicker.setKey(apikey);
@@ -35,8 +40,8 @@ function loadResumeUpload(){
         extensions: [".pdf", ".odt", ".doc", ".txt"],
       },
       function(data){
-        $("#upload-resume").text("Update Resume");
         $("#inputResumeMain").val(data.url)
+        updatedResume();
       },
       function(FPError){
         //inputError.serverFault();
@@ -58,6 +63,9 @@ class application{
 
       if(userData){
         $("#inputNameMain").val(userData.name);
+        if($("#inputResumeMain").val()){
+          updatedResume();
+        }
         that.checkEducationSelector();
       }
 
