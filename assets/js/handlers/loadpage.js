@@ -48,10 +48,23 @@ window.onpopstate = function(){
   });
 };
 
+function checkLogin(){
+  if($("#userdat").data("session")){
+      userIsLoggedin();
+  }
+}
 
+function userIsLoggedin() {
+  let html =  '<a data-goto="apply" class="load">Your Application</a>';
+      html += '<a href="/api/logout" class="load selected">Log Out</a>';
+
+  $("#applyNow").html(html);
+}
 
 $(document).ready(function(){
   startUpScripts();
+
+  checkLogin();
 
   // hide the nojs website
   $(".nojs").html("");

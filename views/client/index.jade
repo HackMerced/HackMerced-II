@@ -3,7 +3,8 @@ include assets/head
 block content
   div(id='userdat' style='display:none; left:-1000px; top:-1000px position:fixed;'
       data-anonymous= user.anonymous
-      data-session= user.session)
+      data-session= user.session
+      data-filestack= keys.filestack_api_key)
   include assets/header
 
   preload(data-service='client')
