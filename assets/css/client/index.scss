@@ -58,11 +58,12 @@
 }
 
 .index-il-image1, .index-il-image2, .index-il-image1::after, .index-il-image2::after{
-  width: 50%;
+  width: 100%;
   height: 100%;
-  background-size: auto 120%;
+  background-size: cover;
   position: relative;
-  background-position: center center;
+  background-position: top center;
+
 
 }
 
@@ -89,13 +90,12 @@
 
 
 .index-il-image1{
-  background-size: 100%;
   background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/9.jpg");
 }
 
 .index-il-image1::after{
   background-image: url("https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/16.jpg");
-  background-size: auto 100%;
+
   top: -100%;
 }
 
@@ -187,7 +187,7 @@
 
 .seeFuture{
   background-image: url(https://s3-us-west-1.amazonaws.com/hackmerced/look_back_2016/12_full.jpg);
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   height: 500px;
@@ -233,4 +233,74 @@
 .index-apply-now{
   padding: 20px 30px;
   margin-top: 30px;
+}
+
+
+.index-Winners2016{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+
+.index-sponsors{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  img{
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+
+
+.index-w2-item{
+  min-width: 250px;
+  width: 28%;
+  color: #fff;
+  cursor: pointer;
+  height: 500px;
+  position: relative;
+  padding: 40px 20px;
+
+  h3{
+    color: #fff;
+    max-width: 300px;
+  }
+
+  .index-w2-lower{
+    position: absolute;
+    bottom: 20px;
+
+    background: #fff;
+    position: absolute;
+    color: #636363;
+    font-weight: 600;
+    line-height: 60px;
+    width: 60px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .index-w2-lower::after{
+    content: attr(data-win);
+    color: #fff;
+    left: 80px;
+    bottom: 5px;
+    position: absolute;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.4;
+    width: 200px;
+  }
+}
+
+.bolden{
+  font-weight: 600;
+  font-size: 18px;
+  color: #364B91;
+  letter-spacing: 0;
 }

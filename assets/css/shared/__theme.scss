@@ -2,11 +2,15 @@
   We don't use bootstrap. Stop asking.
 */
 
+
+*{
+  box-sizing: border-box;
+}
+
 // define body
 body, html{
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
     font-family: $body-font;
     font-size: $body-font-size;
     line-height: $body-line-height;
@@ -116,6 +120,10 @@ a{
   max-width: 1440px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.contentTitle{
+  margin: 91px 0px;
 }
 
 .isCentered{

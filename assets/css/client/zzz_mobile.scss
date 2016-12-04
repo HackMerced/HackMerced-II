@@ -8,6 +8,18 @@
 
 @media screen and (max-width:660px) {
 
+  body, html{
+    min-width: 200px;
+  }
+
+  .index-w2-item{
+    width: 100%;
+
+  }
+
+  .index-Winners2016{
+    display: block;
+  }
 
   header nav.isLeft{
     position: fixed;
@@ -38,9 +50,15 @@
 
   }
 
+  .error-container{
+    padding: 0px 20px;
+  }
+
   body.dark header nav a{
     color: $black;
   }
+
+
 
   .sponsor-primaryCTA .CTA{
     width: 100%;
@@ -58,6 +76,10 @@
     padding: 20px 20px;
   }
 
+  section.minHeight{
+    min-height: 400px;
+    height: auto;
+  }
 
 
   .center.notext:not(.media-padded){
@@ -151,6 +173,23 @@
     font-size: 16px;
   }
 
+  .apply-option{
+    width: 100%;
+  }
+
+  header nav.isRight {
+    left: 20px;
+    top: 49px;
+    right: auto;
+  }
+
+  .apply-btn-bottom{
+    width: calc(100% - 40px);
+  }
+
+  .padOnMobile{
+    padding: 0px 20px;
+  }
 
   h6.infobox{
     font-size: 17px;

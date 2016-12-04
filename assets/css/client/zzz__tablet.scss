@@ -91,6 +91,10 @@
   .sponsor-expectedHackers{
     display: none;
   }
+
+  nav.isLeft{
+    display: none !important;
+  }
 };
 
 
@@ -102,7 +106,6 @@ header .isLeft .getUpdates{
   section .small-content{
     padding: 30px 20px;
   }
-
 
   h6.infobox{
     display: block;

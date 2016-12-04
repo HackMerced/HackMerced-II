@@ -92,7 +92,7 @@ $sponsor-border-config: 1px solid #DCDCDC;
 
 .sponsor-rotate-image{
   padding: 20px 20px 67px;
-
+  box-sizing: content-box;
 
   img{
     opacity: 0;
