@@ -1,7 +1,7 @@
 <container class='center notext'>
   <section class='applyNow white isTotal '>
     <div class='content'>
-      <div>
+      <div class='padOnMobile'>
         <h1 class='white allCaps'>
           <text class='darkblue'>START YOUR APPLICATION, NOW.</text>
         </h1>
@@ -15,15 +15,15 @@
           <div class='apply-completecount'>Logged Out</div>
         </div>
         <div class='apply-time-section' id='apply-GettingToKnowYou'>
-          Getting to know you.
+          Your Application
           <div class='apply-completecount'>Not Started</div>
         </div>
         <div class='apply-time-section' id='apply-Reimbursment'>
-          Getting you here!
-          <div class='apply-completecount'>Plan your journey to Merced</div>
+          Reimbursments + Travel
+          <div class='apply-completecount'>Coming Soon</div>
         </div>
         <div class='apply-time-section' id='apply-Acceptance'>
-          Your Acceptance
+          Your App Decision
           <div class='apply-completecount'>Annouced From December 17th!</div>
         </div>
       </div>
@@ -71,7 +71,7 @@
           <div class='apply-block'>
             <h4>Hi there!</h4>
             <p>
-              Welcome to your HackMerced application! We at HackMerced are greatful that you have decided to apply to our hackathon - our applications formally close January 2nd, but we will annoucing acceptances as soon as December 17th!
+              Welcome to your HackMerced application! We at HackMerced are grateful that you have decided to apply to our hackathon - our applications formally close January 2nd, but we will annoucing acceptances as soon as December 17th!
             </p>
             <p>
               We are experimenting with new features, including automatically saving your application every change you make!
@@ -80,145 +80,7 @@
               When you are finally done, please hit "Submit my Application" at the bottom for us to review you app (you can still make edits after).
             </p>
           </div>
-          <div class='apply-required apply-item' id='inputName'>
-            <label>Where are you from?</label>
-            <div class='apply-description'>Who just are you?</div>
-            <input id="applyNameMain" placeholder='Joe Montana' type='address'>
-          </div>
-          <div class='apply-required apply-item' id='inputLocation'>
-            <label>Where are you from?</label>
-            <div class='apply-description'>We want to better understand our hackers, just enter in your city name and click on the autocomplete options provided.</div>
-            <input id="applyLocationMain" placeholder='San Jose, California' type='address'>
-          </div>
-          <div class='apply-required apply-item' id='inputAge'>
-            <label>My age is:</label>
-            <div class='apply-description'>We accept students of all ages, if you are under the age of 18, we will provide a special consent form for you.</div>
-            <input placeholder='18' class='small' type='number'>
-          </div>
-          <div class='apply-required apply-item' id='inputEducation'>
-            <label>I am a:</label>
-            <div class='apply-description'>We accept high schoolers, undergrad, graduate university students as well as college-aged hackers!</div>
-            <div class='apply-options'>
-              <div class='apply-option ifHighSchool' data-type='High School'>High Schooler</div>
-              <div class='apply-option ifCollege' data-type='Undergrad'>Undergrad Student</div>
-              <div class='apply-option ifCollege' data-type='Graduate'>Graduate Student</div>
-              <div class='apply-option ifLoneWolf' data-type='College Aged'>College Aged, no School</div>
-            </div>
-            <input id="applyEducationMain" class='apply-option-hidden'>
-          </div>
-          <div class='apply-required apply-item isCollege' id='inputUniversity'>
-            <label>What university are you from?</label>
-            <div class='apply-description'>More applicants from you university === More reimbursments!</div>
-            <input id="applyUniversityMain" placeholder='University of California, Merced' type='address'>
-          </div>
-          <div class='apply-required apply-item isCollege' id='inputMajor'>
-            <label>What is your major?</label>
-            <div class='apply-description'>HackMerced is for all students, not just CS majors!</div>
-            <input id="applyMajorMain" placeholder='Art History' type='text'>
-          </div>
-          <div class='apply-required apply-item isCollege' id='inputGradYear'>
-            <label>What is your graduation year?</label>
-            <div class='apply-description'>(This helps employers reach out to you)</div>
-            <input id="applyGradMain" class='small' placeholder='2018' type='year'>
-          </div>
-          <div class='apply-required apply-item isHighSchool' id='inputHighSchool'>
-            <label>Which High School do you go to?</label>
-            <div class='apply-description'>Helps us work with High Schools to bring more engineering programs to you!</div>
-            <input id="applyHSMain" placeholder='Merced High' type='text'>
-          </div>
-          <div class='apply-required apply-item isLoneWolf' id='inputFood'>
-            <label>What is your favorite food?</label>
-            <div class='apply-description'>I prefer pizza myself!</div>
-            <input id="applyFoodMain" placeholder='Tacos' type='text'>
-          </div>
-          <div class='apply-required apply-item' id='inputSex'>
-            <label>I identify as:</label>
-            <div class='apply-description'>HackMerced is an all-inclusive community, we just use this information for statistics!</div>
-            <div class='apply-options'>
-              <div class='apply-option' data-type='Female'>Female</div>
-              <div class='apply-option' data-type='Male'>Male</div>
-              <div class='apply-option' data-type='Non-Binary'>Non-Binary</div>
-              <div class='apply-option' data-type='Undisclosed'>I do not wish to disclose</div>
-            </div>
-            <input id="applySexMain" class='apply-option-hidden'>
-          </div>
-          <div class='apply-required apply-item' id='inputFood'>
-            <label>Any dietary restrictions:</label>
-            <div class='apply-description'>We all gotta eat gud.</div>
-            <div class='apply-options'>
-              <div class='apply-option' data-type='None'>None</div>
-              <div class='apply-option' data-type='Halal'>Halal</div>
-              <div class='apply-option' data-type='Kosher'>Kosher</div>
-              <div class='apply-option' data-type='Hindu/No Beef'>Hindu</div>
-              <div class='apply-option' data-type='Vegetarian'>Vegetarian</div>
-              <div class='apply-option' data-type='Vegan'>Vegan</div>
-              <div class='apply-option' data-type='Jain'>Jain</div>
-            </div>
-            <input class='apply-option-hidden'>
-          </div>
-          <div class='apply-required apply-item' id='inputAllergies'>
-            <label>Do you have any allergies?</label>
-            <div class='apply-description'>Gotta make sure not to have that around.</div>
-            <input id="applyAllergiesMain" placeholder='Tacos' type='text'>
-          </div>
-          <div class='apply-required apply-item' id='inputFood'>
-            <label>What is your shirt size?</label>
-            <div class='apply-description'>We use this data to order shirts.</div>
-            <div class='apply-options'>
-              <div class='apply-option' data-type='XS'>Extra Small</div>
-              <div class='apply-option' data-type='S'>Small</div>
-              <div class='apply-option' data-type='M'>Medium</div>
-              <div class='apply-option' data-type='L'>Large</div>
-              <div class='apply-option' data-type='XL'>Extra Large</div>
-              <div class='apply-option' data-type='XXL'>2x Large</div>
-            </div>
-            <input class='apply-option-hidden'>
-          </div>
-          <div class='apply-required apply-item' id='inputResume'>
-            <label>Send us your Resume!</label>
-            <div class='apply-description'>This helps recruiters and us better understand you!</div>
-            <input type="filepicker" data-fp-apikey="AyfRnSpVxSfjgiGAHd1C4z" onchange="alert(event.fpfile.url)">
-            <input class='apply-option-hidden'>
-          </div>
-          <div class='apply-item' id='inputGitHub'>
-            <label>Do you have a GitHub?</label>
-            <div class='apply-description'>Please link us your GitHub!</div>
-            <input placeholder='https://github.com/4shub' type='url'>
-          </div>
-          <div class='apply-item' id='inputDevpost'>
-            <label>How about a Devpost?</label>
-            <div class='apply-description'></div>
-            <input placeholder='https://devpost.com/4shub' type='url'>
-          </div>
-          <div class='apply-item' id='inputDribbble'>
-            <label>A Dribbble?</label>
-            <div class='apply-description'></div>
-            <input placeholder='https://dribbble.com/shubhamnaik' type='url'>
-          </div>
-          <div class='apply-item' id='inputBehance'>
-            <label>Behance..?</label>
-            <div class='apply-description'></div>
-            <input placeholder='https://www.behance.net/forthwall' type='url'>
-          </div>
-          <div class='apply-item' id='inputWebsite'>
-            <label>Personal Website..?</label>
-            <div class='apply-description'></div>
-            <input placeholder='https://www.shub.club' type='url'>
-          </div>
-          <div class='apply-item' id='inputLinkedIn'>
-            <label>Finally, do you have a LinkedIn?</label>
-            <div class='apply-description'></div>
-            <input placeholder='https://linkedin.com/in/shubhamnaik' type='url'>
-          </div>
-          <div class='apply-required apply-item' id='inputMLH'>
-            <label>I will at all times abide by and conform to the Major League Hacking Code of Conduct while at the event.</label>
-            <div class='apply-description'><a href=' https://static.mlh.io/docs/mlh-code-of-conduct.pdf'>https://static.mlh.io/docs/mlh-code-of-conduct.pdf</a></div>
-            <div class='apply-options'>
-              <div class='apply-option' data-type='Yes'>Yes</div>
-              <div class='apply-option' data-type='No'>No</div>
-            </div>
-            <input class='apply-option-hidden'>
-          </div>
+          <div id="apply-actual"></div>
           <button class='complete-my-app apply-btn-bottom'>Submit my application!</button>
         </div>
       </form>
