@@ -49,7 +49,7 @@ class myriagon{
 
     let bounding = this.input.getBoundingClientRect();
     let offset = {
-      top: (bounding.top - document.body.getBoundingClientRect().top) + this.input.offsetHeight,
+      top: (bounding.bottom - document.body.getBoundingClientRect().top) + this.input.offsetHeight,
       left: bounding.left,
       width: this.input.offsetWidth,
     }
