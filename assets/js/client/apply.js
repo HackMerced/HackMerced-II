@@ -273,7 +273,7 @@ $(document).on("click", ".complete-my-app", function(e){
 
   if(pass){
     updateApplication(true);
-    inputError.userFault({text:"You have successfully submitted your application - you can stil edit your app!"});
+    inputError.userFault({text:"You have successfully submitted your application - you can still edit your app!"});
   } else {
     inputError.userFault({text:"You are missing a few required parameters!"});
   }
