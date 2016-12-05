@@ -44,7 +44,7 @@ function loadResumeUpload(){
         updatedResume();
       },
       function(FPError){
-        //inputError.serverFault();
+        //loadBanner.error.server()
       });
   });
 }
@@ -222,7 +222,7 @@ function loadApplication(userData, resolve){
       });
     },
     error: function(error){
-      inputError.serverFault();
+      loadBanner.error.server()
     }
   });
 }
@@ -273,9 +273,9 @@ $(document).on("click", ".complete-my-app", function(e){
 
   if(pass){
     updateApplication(true);
-    inputError.userFault({text:"You have successfully submitted your application - you can still edit your app!"});
+    loadBanner.success({text:"You have successfully submitted your application - you can still edit your app!"});
   } else {
-    inputError.userFault({text:"You are missing a few required parameters!"});
+    loadBanner.error.user({text:"You are missing a few required parameters!"});
   }
 });
 
@@ -323,9 +323,9 @@ $(document).on("click", ".start-my-app", function(e){
           lockStartApp = false;
 
           if(error.status === 500 || !error.responseJSON){
-            inputError.serverFault();
+            loadBanner.error.server()
           } else {
-            inputError.userFault(error.responseJSON);
+            loadBanner.error.user(error.responseJSON)
           }
         }
     });
@@ -466,9 +466,9 @@ let updateApplication = function(isDone){
         updateLock = false;
 
         if(error.status === 500 || !error.responseJSON){
-          inputError.serverFault();
+          loadBanner.error.server()
         } else {
-          inputError.userFault(error.responseJSON);
+          loadBanner.error.user(error.responseJSON)
         }
       }
     });

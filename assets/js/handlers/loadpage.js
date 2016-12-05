@@ -65,8 +65,7 @@ $(document).ready(function(){
   startUpScripts();
 
   checkLogin();
-
-
+  
   // hide the nojs website
   $(".nojs").html("");
 
