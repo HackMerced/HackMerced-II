@@ -216,7 +216,7 @@ const application = {
           attributes:{
           },
         },
-        required:true
+        required:false
       },
       {
         id:"GitHub",
