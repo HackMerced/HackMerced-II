@@ -1,0 +1,48 @@
+.banner-box{
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px 40px;
+  color: #fff;
+  margin: 20px 0px;
+
+  &.error{
+    background-color: #ff4800;
+  }
+
+  &.success{
+    background-color: $lightblue;
+  }
+}
+
+.banner-box-x{
+  position: absolute;
+  right: 30px;
+  top: 26px;
+  cursor: pointer;
+}
+
+.banner-container{
+  position: fixed;
+  top: 0px;
+  z-index: 999;
+  padding: 0px 60px;
+  max-width: 1440px;
+  width: 100%;
+  box-sizing: border-box;
+  left: 50%;
+  margin-left: -720px;
+}
+
+@media screen and (max-width:1439px) {
+  .banner-container{
+    margin-left: 0px;
+    left: 0;
+  }
+
+}
+
+input.errored{
+  box-shadow: 0px 0px 2px 1px #cc4242;
+  border: 0px !important;
+}
