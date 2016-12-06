@@ -243,7 +243,7 @@ function generateArcAboutAttendence(){
               show: false
           },
       min: 0,
-      max:850,
+      max:500,
       units: ' %',
       width: 60
       },
