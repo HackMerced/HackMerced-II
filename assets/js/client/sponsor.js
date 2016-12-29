@@ -48,7 +48,7 @@ $(document).on("click", ".sponsor-submit-button", function(e){
   // get info from html
   const send = {
     email:$("#sponsor-YourEmail").val(),
-    message:$("#sponsor-YourEmail").val()
+    message:$("#sponsor-YourMessage").val()
   };
 
   $button.text("Sending...");
