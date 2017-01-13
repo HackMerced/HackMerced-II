@@ -168,6 +168,13 @@ $sponsor-border-config: 1px solid #DCDCDC;
   background-position: center center;
 }
 
+
+.index-sponsors > a {
+    width: 33%;
+    display: block;
+    text-align: center;
+}
+
 .sponsor-ref-text{
   font-weight: 300;
   font-size: 21px;
