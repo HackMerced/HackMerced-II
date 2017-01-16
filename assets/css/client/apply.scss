@@ -99,6 +99,12 @@ box-sizing: border-box;
   position: relative;
 }
 
+.apply-section-ConfirmAcceptance{
+  .apply-block{
+    display: none;
+  }
+}
+
 form.apply-form{
   label{
       /* Give us your email!: */

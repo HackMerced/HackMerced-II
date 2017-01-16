@@ -279,6 +279,33 @@ $(document).on("click", ".complete-my-app", function(e){
   }
 });
 
+$(document).on("click", ".confirm-my-app", function(e){
+  e.preventDefault();
+
+  $.ajax({
+    url: "/api/confirm",
+    type: "POST",
+    contentType:"application/json",
+    dataType:"json",
+    data:JSON.stringify({hacker:{status:"confirmed"}}),
+    success: function(user){
+      $("#usr-accepted-in").css("display", "none");
+      $("#usr-confirmed-in").fadeIn(1500);
+    },
+
+    error: function(error){
+      updateLock = false;
+
+      if(error.status === 500 || !error.responseJSON){
+        loadBanner.error.server()
+      } else {
+        loadBanner.error.user(error.responseJSON)
+      }
+    }
+  });
+});
+
+
 
 let lockStartApp = false;
 
@@ -342,16 +369,41 @@ function checkUserApplicationStatus(status){
 }
 
 function startInnerUser(user){
-  $(".apply-section-KeepingLoop").css("display", "none");
+
+  var type = window.location.hash.substr(1);
+
+  $(".apply-section").css("display", "none");
   $(".apply-time-section").removeClass("selected");
-  $("#apply-GettingToKnowYou").addClass("selected");
-  $(".apply-section-GettingToKnowYou").fadeIn(1500);
 
-  $("#apply-KeepingLoop .apply-completecount").text("Logged In");
+  if(type && type === "accept"){
+    $("#apply-Acceptance").addClass("selected");
 
-  checkUserApplicationStatus(user.status);
-  loadLocationAutocomplete();
-  loadResumeUpload();
+    $(".apply-section-ConfirmAcceptance .apply-block").css("display", "none");
+    if(user.status === "rejected"){
+      $("#usr-rejected").css("display", "block");
+    } else if(user.status === "accepted"){
+      $("#usr-accepted").css("display", "block");
+    } else if(user.status === "confirmed"){
+      $("#usr-accepted, #usr-confirmed-in").css("display", "block");
+      $("#usr-accepted-in").css("display", "none");
+      $("#usr-confirmed").text("Your application has been confirmed!")
+    } else {
+      $("#usr-none").css("display", "block");
+    }
+
+    $(".apply-section-ConfirmAcceptance").fadeIn(1500);
+
+  } else {
+    $("#apply-GettingToKnowYou").addClass("selected");
+    $(".apply-section-GettingToKnowYou").fadeIn(1500);
+
+    $("#apply-KeepingLoop .apply-completecount").text("Logged In");
+
+    checkUserApplicationStatus(user.status);
+    loadLocationAutocomplete();
+    loadResumeUpload();
+  }
+
 }
 
 $(document).on("click", ".option-signThemUp", function(){

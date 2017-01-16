@@ -146,6 +146,31 @@ module.exports = function(app, keys) {
 
 
 
+  app.post('/api/confirm', function(req, res){
+    if(req.session.user && req.session.user.email){
+      if(req.session.user.status === "accepted"){
+        const options = {
+          method:"POST",
+          uri: tomoeuri + '/1.0/hackers/' + req.session.user.email,
+          headers:tomoeauth,
+          json:true,
+          body: req.body.hacker
+        }
+
+        request(options, function (error, response, body) {
+          updateUser(res, req, error, response, body);
+        });
+      } else {
+        res.status(403).send("You were not accepted!");
+      }
+
+    } else {
+      res.status(403).send("You are not logged in!");
+    }
+
+  });
+
+
   app.post('/api/update', function(req, res){
     if(req.session.user && req.session.user.email){
       const options = {
