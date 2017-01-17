@@ -361,8 +361,8 @@ $(document).on("click", ".start-my-app", function(e){
 
 function checkUserApplicationStatus(status){
   let $appStatus = $("#apply-GettingToKnowYou .apply-completecount");
-  if(status === "accepted"){ // accepted goes in your acceptance
-    $appStatus.text("Completed");
+  if(status === "accepted" || status === "rejected"){ // accepted goes in your acceptance
+    $appStatus.text("Check Your App Decision!");
   } else {
     $appStatus.text(status.capitalize());
   }
@@ -377,6 +377,7 @@ function startInnerUser(user){
 
   $(".apply-section").css("display", "none");
   $(".apply-time-section").removeClass("selected");
+  checkUserApplicationStatus(user.status);
 
   if(type && type === "accept"){
     $("#apply-Acceptance").addClass("selected");
@@ -402,7 +403,7 @@ function startInnerUser(user){
 
     $("#apply-KeepingLoop .apply-completecount").text("Logged In");
 
-    checkUserApplicationStatus(user.status);
+
     loadLocationAutocomplete();
     loadResumeUpload();
   }
