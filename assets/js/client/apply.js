@@ -368,7 +368,10 @@ function checkUserApplicationStatus(status){
   }
 }
 
+let global_user_status;
+
 function startInnerUser(user){
+  global_user_status = user.status;
 
   var type = window.location.hash.substr(1);
 
@@ -498,11 +501,15 @@ let updateApplication = function(isDone){
 
     let send = generateSendForUpdate();
 
-    if(isDone){
-      send.status = "submitted";
-    } else {
-      send.status = "in-progress"
+    if(!global_user_status || global_user_status  === "in-progress" || global_user_status === "started" || global_user_status === "submitted"){
+      if(isDone){
+        global_user_status = "submitted";
+      } else {
+        global_user_status = "in-progress"
+      }
     }
+
+    send.status = global_user_status;
 
     $.ajax({
       url: "/api/update",
