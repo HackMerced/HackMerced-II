@@ -105,6 +105,10 @@ box-sizing: border-box;
   }
 }
 
+#usr-confirmed-in{
+  display: none;
+}
+
 form.apply-form{
   label{
       /* Give us your email!: */
