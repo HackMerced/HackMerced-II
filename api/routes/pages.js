@@ -48,7 +48,7 @@ module.exports = function(app, keys) {
     if (!error && (response.statusCode === 201 || response.statusCode === 200) && body && body.hacker) {
       req.session.user = body.hacker;
 
-      res.cookie('username', body.email.toLowerCase(), { maxAge: 1080000000 });
+      res.cookie('username', body.email, { maxAge: 1080000000 });
       res.cookie('password', body.password, { maxAge: 1080000000 });
 
       res.status(response.statusCode).send(body);
@@ -87,18 +87,21 @@ module.exports = function(app, keys) {
 
     reqVerify(req, res, verify, function(){
       if(req.body.confirmPassword === req.body.password){
+
+        let body = {
+          email:req.body.email.toLowerCase(),
+          password:req.body.password,
+          name:"",
+          survey:{},
+          status:"started"
+        };
+
         const options = {
           method:"POST",
           uri: tomoeuri + '/1.0/hackers?',
           headers:tomoeauth,
           json:true,
-          body:{
-            email:req.body.email.toLowerCase(),
-            password:req.body.password,
-            name:"",
-            survey:{},
-            status:"started"
-          }
+          body:body
         }
 
         request(options, function (error, response, body) {
@@ -137,6 +140,8 @@ module.exports = function(app, keys) {
           json:true,
           uri: tomoeuri + '/1.0/hackers/' + req.body.email.toLowerCase() + "?&verifyLogin=true",
         }
+
+  
 
         request(options, function (error, response, body) {
           updateUser(res, req, error, response, body);
