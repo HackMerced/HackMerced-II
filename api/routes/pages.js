@@ -48,7 +48,7 @@ module.exports = function(app, keys) {
     if (!error && (response.statusCode === 201 || response.statusCode === 200) && body && body.hacker) {
       req.session.user = body.hacker;
 
-      res.cookie('username', body.email, { maxAge: 1080000000 });
+      res.cookie('username', body.email.toLowerCase(), { maxAge: 1080000000 });
       res.cookie('password', body.password, { maxAge: 1080000000 });
 
       res.status(response.statusCode).send(body);
@@ -93,7 +93,7 @@ module.exports = function(app, keys) {
           headers:tomoeauth,
           json:true,
           body:{
-            email:req.body.email,
+            email:req.body.email.toLowerCase(),
             password:req.body.password,
             name:"",
             survey:{},
@@ -135,7 +135,7 @@ module.exports = function(app, keys) {
           method:"GET",
           headers:tomoeauth,
           json:true,
-          uri: tomoeuri + '/1.0/hackers/' + req.body.email + "?&verifyLogin=true",
+          uri: tomoeuri + '/1.0/hackers/' + req.body.email.toLowerCase() + "?&verifyLogin=true",
         }
 
         request(options, function (error, response, body) {
@@ -151,7 +151,7 @@ module.exports = function(app, keys) {
       if(req.session.user.status === "accepted"){
         const options = {
           method:"POST",
-          uri: tomoeuri + '/1.0/hackers/' + req.session.user.email,
+          uri: tomoeuri + '/1.0/hackers/' + req.session.user.email.toLowerCase(),
           headers:tomoeauth,
           json:true,
           body: req.body.hacker
@@ -175,7 +175,7 @@ module.exports = function(app, keys) {
     if(req.session.user && req.session.user.email){
       const options = {
         method:"POST",
-        uri: tomoeuri + '/1.0/hackers/' + req.session.user.email,
+        uri: tomoeuri + '/1.0/hackers/' + req.session.user.email.toLowerCase(),
         headers:tomoeauth,
         json:true,
         body: req.body.hacker
