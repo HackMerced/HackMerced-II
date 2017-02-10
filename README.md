@@ -48,6 +48,10 @@ $ npm start
 
 Access the website by going to `http://localhost:4220`
 
+
+## Font Accessibility ##
+HackMerced utilizes the non-free font, `Proxima Nova`, in our application, but has inbuilt support for default OS fonts.
+
 ## License
 
 (The MIT License)
